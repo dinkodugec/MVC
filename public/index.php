@@ -42,5 +42,7 @@ if ($router->match($url)) {
 } else {
     echo "No route found for URL '$url'";
 }
+?>
+<a href="/admin/index.php">Admin</a>
 
 
