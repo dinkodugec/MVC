@@ -1,5 +1,7 @@
 <?php
 
+
+
 /**
  * Front controller
 
@@ -8,14 +10,27 @@
 // echo 'Requested URL = "' . $_SERVER['QUERY_STRING'] . '"';
 
 // Require the controller class
-require '../App/Controllers/Posts.php';
+/* require '../App/Controllers/Posts.php'; */
+
+
+/**
+ * Autoloader
+ */
+spl_autoload_register(function ($class) {
+    $root = dirname(__DIR__);   // get the parent directory
+    $file = $root . '/' . str_replace('\\', '/', $class) . '.php';
+    if (is_readable($file)) {
+        require $root . '/' . str_replace('\\', '/', $class) . '.php';
+    }
+});
+
 
 /**
  * Routing
  */
-require '../Core/Router.php';
+/* require '../Core/Router.php'; */
 
-$router = new Router();
+$router = new Core\Router();
 
 //echo get_class($router);  
 /* The get_class() function gets the name of the class of an object. It returns FALSE if object is not an object. If object is excluded when inside a class,
