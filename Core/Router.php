@@ -121,7 +121,7 @@ class Router
             $controller = "App\Controllers\\$controller";
 
             if (class_exists($controller)) {
-                $controller_object = new $controller();  //new object of class, if class exists
+                $controller_object = new $controller($this->params);  //when creating passing route parameters from route
 
                 $action = $this->params['action'];
                 $action = $this->convertToCamelCase($action); 
