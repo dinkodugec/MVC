@@ -118,7 +118,7 @@ class Router
         if ($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller); /* convert to, example: PostController */
-            /* $controller = "App\Controllers\\$controller"; */
+        /*     $controller = "App\Controllers\\$controller"; */
             $controller = $this->getNamespace() . $controller;
 
             if (class_exists($controller)) {
