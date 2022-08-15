@@ -4,7 +4,6 @@
 
 /**
  * Front controller
-
  */
 
 // echo 'Requested URL = "' . $_SERVER['QUERY_STRING'] . '"';
@@ -43,6 +42,7 @@ $router->add('posts', ['controller' => 'Posts', 'action' => 'index']);
 $router->add('{controller}/{action}');
 $router->add('admin/{action}/{controller}');
 $router->add('{controller}/{id:\d+}/{action}');
+$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']); //namespace like option
     
 /* // Display the routing table */
 /* echo '<pre>';
@@ -52,7 +52,6 @@ echo '</pre>'; */
 
 // Match the requested route
 /* $url = $_SERVER['QUERY_STRING'];
-
 if ($router->match($url)) {
     echo '<pre>';
     var_dump($router->getParams());
@@ -65,5 +64,3 @@ $router->dispatch($_SERVER['QUERY_STRING']);
 
 ?>
 <!-- <a href="/admin/index.php">Admin</a> -->
-
-
