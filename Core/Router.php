@@ -206,7 +206,7 @@ class Router
         return $url;
     }
 
-     /**
+    /**
      * Get the namespace for the controller class. The namespace defined in the
      * route parameters is added if present.
      *
