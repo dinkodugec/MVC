@@ -119,7 +119,7 @@ class Router
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller); /* convert to, example: PostController */
         /*     $controller = "App\Controllers\\$controller"; */
-            $controller = $this->getNamespace() . $controller;
+            $controller = $this->getNamespace() . $controller;  //controller namespace
 
             if (class_exists($controller)) {
                 $controller_object = new $controller($this->params);  //when creating passing route parameters from route..via __construct  :)
