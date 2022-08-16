@@ -6,19 +6,21 @@ use \Core\View;
 
 /**
  * Home controller
+ *
+ * PHP version 5.4
  */
 class Home extends \Core\Controller
 {
 
-     /**
+    /**
      * Before filter
      *
      * @return void
      */
     protected function before()
     {
-        echo "(before) ";
-        //return false; it will not be executed if it will be false, it be usufull if user is logged in or similiar
+        //echo "(before) ";
+        //return false;
     }
 
     /**
@@ -28,7 +30,7 @@ class Home extends \Core\Controller
      */
     protected function after()
     {
-        echo " (after)";
+        //echo " (after)";
     }
 
     /**
@@ -38,8 +40,7 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
-          //echo 'Hello from the index action in the Home controller!';
-          View::render('Home/index.php', [
+        View::render('Home/index.php', [
             'name'    => 'Dave',
             'colours' => ['red', 'green', 'blue']
         ]);
