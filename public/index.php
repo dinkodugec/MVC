@@ -11,6 +11,8 @@
 // Require the controller class
 /* require '../App/Controllers/Posts.php'; */
 
+require_once dirname(__DIR__) . '/vendor/Autoload.php';
+
 
 /**
  * Autoloader
@@ -35,14 +37,21 @@ $router = new Core\Router();
 /* The get_class() function gets the name of the class of an object. It returns FALSE if object is not an object. If object is excluded when inside a class,
  the name of that class is returned */
 
-// Add the routes
-$router->add('', ['controller' => 'Home', 'action' => 'index']);  //home page
+ 
+/* $router->add('', ['controller' => 'Home', 'action' => 'index']);  
 $router->add('posts', ['controller' => 'Posts', 'action' => 'index']);
-/* $router->add('posts/new', ['controller' => 'Posts', 'action' => 'new']); */
 $router->add('{controller}/{action}');
 $router->add('admin/{action}/{controller}');
 $router->add('{controller}/{id:\d+}/{action}');
-$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']); //namespace like option
+$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']); */ 
+
+
+// Add the routes
+$router->add('', ['controller' => 'Home', 'action' => 'index']);
+$router->add('{controller}/{action}');
+/* $router->add('admin/{action}/{controller}');  */
+$router->add('{controller}/{id:\d+}/{action}');
+$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);//namespace like option  
     
 /* // Display the routing table */
 /* echo '<pre>';
