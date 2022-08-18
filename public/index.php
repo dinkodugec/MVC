@@ -16,7 +16,7 @@ require_once dirname(__DIR__) . '/vendor/Autoload.php'; //this load all third pa
 
 /* Composer  */
 
-require '../vendor/autoload.php';
+/* require '../vendor/autoload.php'; */
 
 /**
  * Autoloader

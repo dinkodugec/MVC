@@ -10,7 +10,9 @@
 </head>
 <body>
  <?php
-    echo "Here is posts index";
+   foreach($posts as $post){
+       var_dump($post);
+   }
  ?>
 
 </body>
