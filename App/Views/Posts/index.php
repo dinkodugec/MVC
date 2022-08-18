@@ -10,7 +10,7 @@
 </head>
 <body>
  <?php
-    echo "Here is index home";
+    echo "Here is posts index";
  ?>
 
 </body>

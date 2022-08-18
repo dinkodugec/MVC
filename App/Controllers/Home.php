@@ -39,15 +39,15 @@ class Home extends \Core\Controller
     public function indexAction()
     {
           //echo 'Hello from the index action in the Home controller!';
-      /*     View::render('Home/index.php', [
-            'name'    => 'Dave',
-            'colours' => ['red', 'green', 'blue']
-        ]); */
-
-        View::renderTemplate('Home/index.html', [
-            'name'    => 'Dinko',
+          View::render('Home/index.php', [
+            'name'    => 'Dugi',
             'colours' => ['red', 'green', 'blue']
         ]);
+
+     /*    View::renderTemplate('Home/index.html', [
+            'name'    => 'Dinko',
+            'colours' => ['red', 'green', 'blue']
+        ]); this is rendering Twig template*/
     }
     
 }
