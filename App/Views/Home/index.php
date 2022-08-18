@@ -9,8 +9,15 @@
     <title>Document</title>
 </head>
 <body>
- <?php
+
+<?php
+     require ("header.html");
+ 
     echo "Here is index home";
+
+
+
+    require ("footer.html");
  ?>
 
 </body>

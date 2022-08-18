@@ -11,8 +11,12 @@
 // Require the controller class
 /* require '../App/Controllers/Posts.php'; */
 
-require_once dirname(__DIR__) . '/vendor/Autoload.php';
+require_once dirname(__DIR__) . '/vendor/Autoload.php'; //this load all third party packages 
 
+
+/* Composer  */
+
+require '../vendor/autoload.php';
 
 /**
  * Autoloader
