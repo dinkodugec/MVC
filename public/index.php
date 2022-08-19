@@ -75,5 +75,6 @@ if ($router->match($url)) {
 
 $router->dispatch($_SERVER['QUERY_STRING']);
 
+
 ?>
 <!-- <a href="/admin/index.php">Admin</a> -->
