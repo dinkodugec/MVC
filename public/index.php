@@ -52,7 +52,7 @@ $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']); */
 
 // Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('{controller}/{action}');
+$router->add('{controller}/{action}'); //this route here for Signup Controller and method(action) Signup controller
 /* $router->add('admin/{action}/{controller}');  */
 $router->add('{controller}/{id:\d+}/{action}');
 $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);//namespace like option  
@@ -75,6 +75,6 @@ if ($router->match($url)) {
 
 $router->dispatch($_SERVER['QUERY_STRING']);
 
-
+/* echo password_hash("ron",PASSWORD_DEFAULT); */
 ?>
 <!-- <a href="/admin/index.php">Admin</a> -->

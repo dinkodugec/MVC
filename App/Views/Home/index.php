@@ -18,7 +18,10 @@
 
 
     require ("footer.html");
+
+   
  ?>
+  <a href="/signup/new">Sign up</a>
 
 </body>
 </html>
