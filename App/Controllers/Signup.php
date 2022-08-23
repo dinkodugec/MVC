@@ -28,10 +28,18 @@ class Signup extends \Core\Controller
      */
     public function createAction()
     {
-      $user = new User($_POST);
+       $user = new User($_POST); //passing arguments like this will, when you creating new object will invoke __construct
 
-      $user->save();
+       if($user->save()) {
 
-      View::render('Signup/success.html');
+        View::render('Signup/success.html');
+
+       } else {
+
+        var_dump($user->errors);
+
+       }
+
+        
     }
 }
