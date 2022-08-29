@@ -39,12 +39,12 @@ class Home extends \Core\Controller
     public function indexAction()
     {
           //echo 'Hello from the index action in the Home controller!';
-          View::render('Home/index.php');
+        /*   View::render('Home/index.php'); */
 
-     /*    View::renderTemplate('Home/index.html', [
+        View::renderTemplate('Home/index.html', [
             'name'    => 'Dinko',
             'colours' => ['red', 'green', 'blue']
-        ]); this is rendering Twig template*/
+        ]); /* this is rendering Twig template */
     }
     
 }

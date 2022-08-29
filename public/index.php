@@ -21,13 +21,13 @@ require_once dirname(__DIR__) . '/vendor/Autoload.php'; //this load all third pa
 /**
  * Autoloader
  */
-spl_autoload_register(function ($class) {
+/* spl_autoload_register(function ($class) {
     $root = dirname(__DIR__);   // get the parent directory
     $file = $root . '/' . str_replace('\\', '/', $class) . '.php';
     if (is_readable($file)) {
         require $root . '/' . str_replace('\\', '/', $class) . '.php';
     }
-});
+});   remove spl_autoload_register after autoloader via composer*/
 
 
 /**
