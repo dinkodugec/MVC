@@ -6,7 +6,6 @@ use PDO;
 
 /**
  * Example user model
-
  */
 class User extends \Core\Model
 {
@@ -57,10 +56,10 @@ class User extends \Core\Model
   public function save()
   {
 
-   $this->validate();
+    $this->validate();
 
-   if(empty($this->errors)){
-
+    if(empty($this->errors)){
+ 
     $password_hash = password_hash($this->password, PASSWORD_DEFAULT);
 
     $sql = 'INSERT INTO users (name, email, password_hash)
@@ -74,8 +73,8 @@ class User extends \Core\Model
     $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
     $stmt->bindValue(':password_hash', $password_hash, PDO::PARAM_STR);
 
-        return $stmt->execute();
-     }
+       return  $stmt->execute(); //true for success false on failure
+        } 
 
      return false;
  
@@ -139,6 +138,8 @@ class User extends \Core\Model
 
         $stmt->execute();
 
+
+        //false if no record is find
         return $stmt->fetch() !== false;  //PDO fetch() return false if record is not find
     }
 }

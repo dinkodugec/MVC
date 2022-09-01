@@ -1,11 +1,17 @@
 <?php
 
+namespace Core;
+
+use PDO;
+
+
 // singleton pattern https://phpenthusiast.com/blog/the-singleton-design-pattern-in-php
-class DB extends PDO
+class DB
 {
 
+
     private static $instance = null;
-    private $conn;
+    private static $conn;
 
     private $host = 'localhost';
     private $user = 'mvcuser';
@@ -30,8 +36,15 @@ class DB extends PDO
       return self::$instance;
     }
     
-    public function getConnection()
+    public static function getConnection()
     {
-      return $this->conn;
+      return self::$conn;
     }
+
+  
 }
+
+$db = DB::getInstance();
+
+
+?>

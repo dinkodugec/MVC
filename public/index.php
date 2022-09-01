@@ -75,6 +75,8 @@ if ($router->match($url)) {
 
 $router->dispatch($_SERVER['QUERY_STRING']);
 
+
+
 /* echo password_hash("ron",PASSWORD_DEFAULT); */
 ?>
 <!-- <a href="/admin/index.php">Admin</a> -->
