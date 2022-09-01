@@ -18,7 +18,7 @@ class Signup extends \Core\Controller
    */
   public function newAction()
   {
-      View::render('Signup/new.html');
+      View::renderTemplate('Signup/new.html');
   }
 
    /**
@@ -38,10 +38,9 @@ class Signup extends \Core\Controller
 
        } else{
 
-       /*  View::renderTemplate('Signup/new.html', [
-          'user' => $user]);  //passing user model */
-
-          var_dump($user->errors);
+        View::renderTemplate('Signup/new.html', [
+          'user' => $user//passing user model
+        ]);  
 
        }
 
