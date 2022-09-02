@@ -19,4 +19,16 @@ class Login extends \Core\Controller
     {
         View::renderTemplate('Login/new.html');
     }
+
+    
+    /**
+     * Log in a user
+     *
+     * @return void
+     */
+    public function createAction()
+    {
+        //here we have email and password comming from the form and we can start authenticate user
+        echo($_REQUEST['email'] . ', ' . $_REQUEST['password']); //output the content of request to see what happend
+    }
 }
