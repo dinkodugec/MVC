@@ -7,10 +7,12 @@ use \App\Models\User;
 
 /**
  * Login controller
-
+ *
+ * PHP version 7.0
  */
 class Login extends \Core\Controller
 {
+
     /**
      * Show the login page
      *
@@ -21,7 +23,6 @@ class Login extends \Core\Controller
         View::renderTemplate('Login/new.html');
     }
 
-    
     /**
      * Log in a user
      *
@@ -33,7 +34,7 @@ class Login extends \Core\Controller
 
         if ($user) {
 
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/public/index.php', true, 303);
+            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/', true, 303);
             exit;
 
         } else {
