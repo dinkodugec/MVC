@@ -34,7 +34,8 @@ class Signup extends \Core\Controller
 
        if($user->save()) {
 
-        View::renderTemplate('Signup/success.html');
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/public/index.php?signup/success', true, 303);
+            exit;                  /*   mvc.hr::8080  in my project*/
 
        } else{
 
@@ -45,5 +46,11 @@ class Signup extends \Core\Controller
        }
 
         
+    }
+
+    
+      public function successAction()
+    {
+        View::renderTemplate('Signup/success.html');
     }
 }
