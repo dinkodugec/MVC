@@ -1,20 +1,20 @@
 <?php
 
-
 namespace Core;
 
 /**
  * Base controller
-
+ *
+ * PHP version 7.0
  */
-abstract class Controller         //abstarct means that we do not want to create a object of a class
+abstract class Controller
 {
 
     /**
      * Parameters from the matched route
      * @var array
      */
-    protected $route_params = []; // property to store route parameters
+    protected $route_params = [];
 
     /**
      * Class constructor
@@ -23,12 +23,12 @@ abstract class Controller         //abstarct means that we do not want to create
      *
      * @return void
      */
-    public function __construct($route_params) //pass route parameters when create object
+    public function __construct($route_params)
     {
         $this->route_params = $route_params;
     }
 
-      /**
+    /**
      * Magic method called when a non-existent or inaccessible method is
      * called on an object of this class. Used to execute before and after
      * filter methods on action methods. Action methods need to be named
@@ -49,7 +49,7 @@ abstract class Controller         //abstarct means that we do not want to create
                 $this->after();
             }
         } else {
-            echo "Method $method not found in controller " . get_class($this);
+            throw new \Exception("Method $method not found in controller " . get_class($this));
         }
     }
 
@@ -71,7 +71,7 @@ abstract class Controller         //abstarct means that we do not want to create
     {
     }
 
-       /**
+    /**
      * Redirect to a different page
      *
      * @param string $url  The relative URL

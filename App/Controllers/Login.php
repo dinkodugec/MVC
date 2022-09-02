@@ -33,8 +33,9 @@ class Login extends \Core\Controller
 
         if ($user) {
 
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/public/index.php', true, 303);
-            exit;
+           /*  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/public/index.php', true, 303);
+            exit; */
+            $this->redirect('/public/index.php');
 
         } else {
 

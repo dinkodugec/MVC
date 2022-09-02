@@ -34,8 +34,10 @@ class Signup extends \Core\Controller
 
        if($user->save()) {
 
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/public/index.php?signup/success', true, 303);
-            exit;                  /*   mvc.hr::8080  in my project*/
+       /*  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/public/index.php?signup/success', true, 303);
+            exit;    */               /*   mvc.hr::8080  in my project*/
+
+            $this->redirect('/public/index.php?signup/success');
 
        } else{
 
