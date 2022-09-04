@@ -10,7 +10,8 @@
 
 <h1>Welcome</h1>
 
-{% if session.user_id %} User with ID {{ session.user_id }} is logged in. {%
-else %}
+{% if session.user_id %} User with ID {{ session.user_id }} is logged in.
+<a href="/public/index.php?logout">Log out</a>
+{%else %}
 <a href="/signup/new">Sign up</a> or <a href="/login">log in</a>. {% endif %} {%
 endblock %}

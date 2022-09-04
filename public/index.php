@@ -62,6 +62,7 @@ $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('{controller}/{action}'); //this route here for Signup Controller and method(action) Signup controller
 /* $router->add('admin/{action}/{controller}');  */
 $router->add('login', ['controller'=>'Login', 'action'=>'new']);  //add route for login, it will be like public/index.php?login
+$router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
 $router->add('{controller}/{id:\d+}/{action}');
 $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);//namespace like option  
     
