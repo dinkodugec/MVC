@@ -30,6 +30,13 @@ require_once dirname(__DIR__) . '/vendor/Autoload.php'; //this load all third pa
 });   remove spl_autoload_register after autoloader via composer*/
 
 
+/* 
+Sessions
+*/
+session_start();
+
+
+
 /**
  * Routing
  */
