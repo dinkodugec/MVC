@@ -39,7 +39,7 @@ class Login extends \Core\Controller
 
            /*  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/public/index.php', true, 303);
             exit; */
-            $this->redirect('/public/index.php');
+            $this->redirect(Auth::getReturnToPage());
 
         } else {
 

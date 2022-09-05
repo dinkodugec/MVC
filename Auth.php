@@ -4,6 +4,8 @@ namespace App;
 
 /**
  * Authentication
+ *
+ * PHP version 7.0
  */
 class Auth
 {
@@ -16,10 +18,9 @@ class Auth
      */
     public static function login($user)
     {
-        session_regenerate_id(true); //Update the current session id with a newly generated one
+        session_regenerate_id(true);
 
         $_SESSION['user_id'] = $user->id;
-        $_SESSION['user_name'] = $user->name;
     }
 
     /**
@@ -56,17 +57,12 @@ class Auth
      *
      * @return boolean
      */
-    public static function isLoggedIn()  //check is user_id is set in $_SESSION
+    public static function isLoggedIn()
     {
         return isset($_SESSION['user_id']);
-    }    
-
-    public static function nameUser()
-    {
-        return isset($_SESSION['user_name']);
     }
 
-     /**
+    /**
      * Remember the originally-requested page in the session
      *
      * @return void
@@ -81,8 +77,8 @@ class Auth
      *
      * @return void
      */
-    public static function getReturnToPage()   //if this value does not exits in $_SESSION we return to homepage
+    public static function getReturnToPage()
     {
-        return $_SESSION['return_to'] ?? '/public/index.php';
+        return $_SESSION['return_to'] ?? '/';
     }
 }
