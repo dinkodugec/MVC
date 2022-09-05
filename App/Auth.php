@@ -19,6 +19,7 @@ class Auth
         session_regenerate_id(true); //Update the current session id with a newly generated one
 
         $_SESSION['user_id'] = $user->id;
+        $_SESSION['user_name'] = $user->name;
     }
 
     /**
@@ -59,4 +60,9 @@ class Auth
     {
         return isset($_SESSION['user_id']);
     }    
+
+    public static function nameUser()
+    {
+        return isset($_SESSION['user_name']);
+    }
 }
