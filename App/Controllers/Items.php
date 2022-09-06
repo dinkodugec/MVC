@@ -11,8 +11,6 @@ use \App\Auth;
 class Items extends Authenticated
 {
 
-   
-
     /**
      * Items index
      *

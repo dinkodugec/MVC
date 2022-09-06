@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Auth;
 use \Core\View;
 
 /**
@@ -42,8 +43,7 @@ class Home extends \Core\Controller
         /*   View::render('Home/index.php'); */
 
         View::renderTemplate('Home/index.html', [
-            'name'    => 'Dinko',
-            'colours' => ['red', 'green', 'blue']
+            'user' => Auth::getUser()
         ]); /* this is rendering Twig template */
     }
     
