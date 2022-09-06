@@ -94,7 +94,7 @@ abstract class Controller         //abstarct means that we do not want to create
      */
     public function requireLogin()
     {
-        if (! Auth::isLoggedIn()) {  //check if it is log in
+        if (! Auth::getUser()) {  
 
             Auth::rememberRequestedPage();  //remember requested page 
 
