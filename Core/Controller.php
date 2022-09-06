@@ -94,11 +94,18 @@ abstract class Controller         //abstarct means that we do not want to create
      */
     public function requireLogin()
     {
-        if (! Auth::isLoggedIn()) {
+        if (! Auth::isLoggedIn()) {  //check if it is log in
 
-            Auth::rememberRequestedPage();
+            Auth::rememberRequestedPage();  //remember requested page 
 
-            $this->redirect('/public/index.php?login');
+            $this->redirect('/public/index.php?login');  //redirect to log in page
         }
+    }
+
+    public function pageCounter()
+    {
+        $_SESSION['pageCounter'] = $_SESSION['pageCounter'] +1;
+
+          return $_SESSION['pageCounter'];
     }
 }

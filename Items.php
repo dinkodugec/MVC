@@ -3,22 +3,20 @@
 namespace App\Controllers;
 
 use \Core\View;
-use \App\Auth;
 
 /**
  * Items controller (example)
+ *
+ * PHP version 7.0
  */
 class Items extends \Core\Controller
 {
-
-       /**
+    /**
      * Require the user to be authenticated before giving access to all methods in the controller
      *
      * @return void
      */
-
-     // before action filter, we require login before access to all method in controller
-    protected function before()  //this method will be run before every action method
+    protected function before()
     {
         $this->requireLogin();
     }
@@ -33,7 +31,7 @@ class Items extends \Core\Controller
         View::renderTemplate('Items/index.html');
     }
 
-     /**
+    /**
      * Add a new item
      *
      * @return void
