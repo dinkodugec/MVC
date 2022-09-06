@@ -35,9 +35,9 @@ Sessions
 */
 session_start();
 
-$_SESSION['pageCounter'] = $_SESSION['pageCounter'] +1;
+/* $_SESSION['pageCounter'] = $_SESSION['pageCounter'] +1;
 
-echo $_SESSION['pageCounter']; // just to see how much people start session in our web site
+echo $_SESSION['pageCounter']; */ // just to see how much people start session in our web site
 
 
 

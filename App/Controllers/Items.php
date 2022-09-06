@@ -8,20 +8,10 @@ use \App\Auth;
 /**
  * Items controller (example)
  */
-class Items extends \Core\Controller
+class Items extends Authenticated
 {
 
-       /**
-     * Require the user to be authenticated before giving access to all methods in the controller
-     *
-     * @return void
-     */
-
-     // before action filter, we require login before access to all method in controller
-    protected function before()  //this method will be run before every action method
-    {
-        $this->requireLogin();
-    }
+   
 
     /**
      * Items index
