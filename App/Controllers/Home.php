@@ -43,7 +43,7 @@ class Home extends \Core\Controller
         /*   View::render('Home/index.php'); */
 
         View::renderTemplate('Home/index.html', [
-            'user' => Auth::getUser()
+          /*   'user' => Auth::getUser()  now rendering twig global variable*/
         ]); /* this is rendering Twig template */
     }
     
