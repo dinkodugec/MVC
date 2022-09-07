@@ -97,7 +97,7 @@ abstract class Controller         //abstarct means that we do not want to create
     {
         if (! Auth::getUser()) {  
 
-            Flash::addMessage('Please login to acces that page');
+            Flash::addMessage('Please login to access that page', Flash::INFO);
 
             Auth::rememberRequestedPage();  //remember requested page 
 

@@ -45,7 +45,7 @@ class Login extends \Core\Controller
 
         } else {
 
-            Flash::addMessage('Login unsuccessful, please try agian');
+            Flash::addMessage('Login unsuccessful, please try agian', Flash::WARNING);
 
             View::renderTemplate('Login/new.html', [
                 'email' => $_POST['email'], // when form is redisplayed when authenticate is failed, we can pass email address when render template
