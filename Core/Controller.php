@@ -4,6 +4,7 @@
 namespace Core;
 
 use \App\Auth;
+use \App\Flash;
 
 /**
  * Base controller
@@ -95,6 +96,8 @@ abstract class Controller         //abstarct means that we do not want to create
     public function requireLogin()
     {
         if (! Auth::getUser()) {  
+
+            Flash::addMessage('Please login to acces that page');
 
             Auth::rememberRequestedPage();  //remember requested page 
 

@@ -47,6 +47,8 @@ class View
             $twig->addGlobal('session', $_SESSION);  //add session like global variable
             $twig->addGlobal('is_logged_in', \App\Auth::isLoggedIn()); //function available in twig template
             $twig->addGlobal('current_user', \App\Auth::getUser()); //user object available in all views 
+            $twig->addGlobal('flash_messages', \App\Flash::getMessages()); //message available
+            
         }
 
         echo $twig->render($template, $args);
