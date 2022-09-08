@@ -36,4 +36,10 @@
       * @var boolean
       */
      const SHOW_ERRORS = true;
+
+        /**
+     * Secret key for hashing
+     * @var boolean
+     */
+    const SECRET_KEY = 'S0MYpu1Ulp9yezp4TdjTD40KHEnamwnD';
  }
