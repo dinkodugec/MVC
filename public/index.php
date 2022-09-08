@@ -6,6 +6,9 @@
  * Front controller
  */
 
+
+ ini_set('session.cookie_lifetime', '864000');  //ten days in seconds...when set this, cookies expires after 10days
+
 // echo 'Requested URL = "' . $_SERVER['QUERY_STRING'] . '"';
 
 // Require the controller class
