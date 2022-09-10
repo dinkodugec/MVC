@@ -33,6 +33,13 @@ class Login extends \Core\Controller
     {
         $user = User::authenticate($_POST['email'], $_POST['password']);
 
+      /*   var_dump($_POST); */
+     /*    if we check remember me it will output in$_POST  ["remember_me"]=> string(2) "on" } 
+     on is default value if it is not specified attribute  value */
+
+        /*   so we can know is it checkbox present in $_POST */
+        $remember_me = isset($_POST['remember_me']);  //we cann see if exist in array what is comming from form
+
         if ($user) {
 
           Auth::login($user);
@@ -49,6 +56,7 @@ class Login extends \Core\Controller
 
             View::renderTemplate('Login/new.html', [
                 'email' => $_POST['email'], // when form is redisplayed when authenticate is failed, we can pass email address when render template
+                'remember_me' => $remember_me  //passing a value to view if authenticate is failed
             ]);
         }
     }
