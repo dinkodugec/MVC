@@ -20,15 +20,17 @@ class Token
      *
      * @return void
      */
-    public function __construct($token_value = null)
+    public function __construct($token_value = null) //$token_value = null
     {
         if ($token_value) {
-
-            $this->token = $token_value;
+  
+            $this->token = $token_value;  //get hash of existing token
 
         } else {
 
-            $this->token = bin2hex(random_bytes(16));  // 16 bytes = 128 bits = 32 hex characters
+       /*  echo random_bytes(16);  will output string of bytes what is not good idea */
+
+            $this->token = bin2hex(random_bytes(16));  //convert this bytes in ASCII string 16 bytes = 128 bits = 32 hex characters
 
         }
     }
@@ -51,5 +53,6 @@ class Token
     public function getHash()
     {
         return hash_hmac('sha256', $this->token, \App\Config::SECRET_KEY);  // sha256 = 64 chars
+        https://randomkeygen.com/ it is recomended a 128 bit key, whic is 32 charachters
     }
 }
