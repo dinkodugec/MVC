@@ -2,10 +2,12 @@
 
 namespace App;
 
-use \App\Models\User;
+use App\Models\User;
 
 /**
  * Authentication
+ *
+ * PHP version 7.0
  */
 class Auth
 {
@@ -13,22 +15,23 @@ class Auth
      * Login the user
      *
      * @param User $user The user model
+     * @param boolean $remember_me Remember the login if true
      *
      * @return void
      */
     public static function login($user, $remember_me)
     {
-        session_regenerate_id(true); //Update the current session id with a newly generated one
+        session_regenerate_id(true);
 
         $_SESSION['user_id'] = $user->id;
-        $_SESSION['user_name'] = $user->name;
 
-        if($remember_me){
+        if ($remember_me) {
 
-             if($user->rememberLogin()){
+            if ($user->rememberLogin()) {
+
                 setcookie('remember_me', $user->remember_token, $user->expiry_timestamp, '/');
-           //  remember me is name of cookiem,  $user->remember_token is value, $user->expiry_timestamp is time for expired and '/' is path
-              }
+
+            }
         }
     }
 
@@ -62,21 +65,6 @@ class Auth
     }
 
     /**
-     * Return indicator of whether a user is logged in or not
-     *
-     * @return boolean
-     */
-    public static function isLoggedIn()  //check is user_id is set in $_SESSION
-    {
-        return isset($_SESSION['user_id']);
-    }    
-
-    public static function nameUser()
-    {
-        return isset($_SESSION['user_name']);
-    }
-
-     /**
      * Remember the originally-requested page in the session
      *
      * @return void
@@ -91,12 +79,12 @@ class Auth
      *
      * @return void
      */
-    public static function getReturnToPage()   //if this value does not exits in $_SESSION we return to homepage
+    public static function getReturnToPage()
     {
-        return $_SESSION['return_to'] ?? '/public/index.php';
+        return $_SESSION['return_to'] ?? '/';
     }
 
-        /**
+    /**
      * Get the current logged-in user, from the session or the remember-me cookie
      *
      * @return mixed The user model or null if not logged in
@@ -104,6 +92,7 @@ class Auth
     public static function getUser()
     {
         if (isset($_SESSION['user_id'])) {
+
             return User::findByID($_SESSION['user_id']);
         }
     }
