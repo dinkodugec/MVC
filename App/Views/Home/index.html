@@ -19,8 +19,8 @@
  -->
 
 {%if current_user %} Hello {{ current_user.name }}.
-<a href="/public/index.php?logout">Log out</a>
+<a href="/logout">Log out</a>
 {% if session.user_id %} User with ID {{ session.user_id }} is logged in. {%
 endif %} {% else %}
-<a href="/public/index.php?signup/new">Sign up</a> or
-<a href="/public/index.php?login">log in</a>. {% endif %} {%endblock %}
+<a href="/signup/new">Sign up</a> or <a href="/login">log in</a>. {% endif %}
+{%endblock %}

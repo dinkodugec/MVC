@@ -7,7 +7,7 @@
  */
 
 
- ini_set('session.cookie_lifetime', '864000');  //ten days in seconds...when set this, cookies expires after 10days
+/*  ini_set('session.cookie_lifetime', '864000');   *///ten days in seconds...when set this, cookies expires after 10days
 
 // echo 'Requested URL = "' . $_SERVER['QUERY_STRING'] . '"';
 
@@ -107,7 +107,7 @@ echo $token2->getValue();
 
  
  */
-
-/* echo password_hash("ron",PASSWORD_DEFAULT); */
+/* 
+echo password_hash("ron",PASSWORD_DEFAULT); */
 ?>
 <!-- <a href="/admin/index.php">Admin</a> -->

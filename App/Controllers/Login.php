@@ -71,7 +71,7 @@ class Login extends \Core\Controller
         
         Auth::logout();
 
-        $this->redirect('/public/index.php?login/show-logout-message');     //going via new request new session is started
+        $this->redirect('/login/show-logout-message');     //going via new request new session is started
     }
 
 
@@ -86,7 +86,7 @@ class Login extends \Core\Controller
     {
       Flash::addMessage('Logout successful');
 
-      $this->redirect('/public/index.php');
+      $this->redirect('/');
     }
     
 }

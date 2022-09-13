@@ -27,7 +27,8 @@ class Auth
 
              if($user->rememberLogin()){
                 setcookie('remember_me', $user->remember_token, $user->expiry_timestamp, '/');
-           //  remember me is name of cookiem,  $user->remember_token is value, $user->expiry_timestamp is time for expired and '/' is path
+                // first argument in setcookie() is name of argument, second argument is value
+                // remember me is name of cookiem,  $user->remember_token is value, $user->expiry_timestamp is time for expired and '/' is path
               }
         }
     }
@@ -93,7 +94,7 @@ class Auth
      */
     public static function getReturnToPage()   //if this value does not exits in $_SESSION we return to homepage
     {
-        return $_SESSION['return_to'] ?? '/public/index.php';
+        return $_SESSION['return_to'] ?? '/';
     }
 
         /**
