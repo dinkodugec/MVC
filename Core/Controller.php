@@ -101,7 +101,7 @@ abstract class Controller         //abstarct means that we do not want to create
 
             Auth::rememberRequestedPage();  //remember requested page 
 
-            $this->redirect('/public/index.php?login');  //redirect to log in page
+            $this->redirect('/login');  //redirect to log in page
         }
     }
 

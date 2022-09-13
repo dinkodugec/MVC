@@ -7,7 +7,7 @@
  */
 
 
-/*  ini_set('session.cookie_lifetime', '864000');   *///ten days in seconds...when set this, cookies expires after 10days
+ini_set('session.cookie_lifetime', '864000');   ///ten days in seconds...when set this, cookies expires after 10days 
 
 // echo 'Requested URL = "' . $_SERVER['QUERY_STRING'] . '"';
 
@@ -95,6 +95,10 @@ if ($router->match($url)) {
 } */
 
 $router->dispatch($_SERVER['QUERY_STRING']);
+
+echo  $_SESSION['return_to'];
+
+
 
 
 /* $token = new \App\Token;
