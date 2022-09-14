@@ -96,7 +96,7 @@ if ($router->match($url)) {
 
 $router->dispatch($_SERVER['QUERY_STRING']);
 
-echo  $_SESSION['return_to'];
+
 
 
 
