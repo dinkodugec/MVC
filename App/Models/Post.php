@@ -34,4 +34,14 @@ class Post extends \Core\Model
             echo $e->getMessage();
         }
     }
+
+    /**
+     * Updatea the posts 
+     *
+     * @return array
+     */
+    public static function update()
+    {
+    
+    }
 }

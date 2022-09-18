@@ -35,7 +35,9 @@ class Posts extends \Core\Controller
      */
     public function addNewAction()
     {
-        echo 'Hello from the addNew action in the Posts controller!';
+        View::renderTemplate('Posts/addNew.html',[
+            
+           ]);
     }
 
      /**
