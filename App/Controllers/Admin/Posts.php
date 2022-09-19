@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Controllers\Admin;
+use \Core\View;
+use App\Models\Post;
+
 
 /**
  * User admin controller
  *
  * 
  */
-class Users extends \Core\Controller
+class Posts extends \Core\Controller
 {
 
     /**
@@ -28,6 +31,10 @@ class Users extends \Core\Controller
      */
     public function indexAction()
     {
-        echo 'User admin index';
+        $posts = Post::getAll();
+        
+         View::renderTemplate('Admin/index.html', [
+            'posts' => $posts
+          ]); 
     }
 }
