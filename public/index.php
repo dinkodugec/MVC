@@ -98,9 +98,6 @@ $router->dispatch($_SERVER['QUERY_STRING']);
 
 
 
-
-
-
 /* $token = new \App\Token;
 echo $token->getValue(); 
  create instance of Token class and call getValue() to se hash_mac()
@@ -108,6 +105,7 @@ echo $token->getValue();
  also we can create a new object of existing token
 /* $token2 = new \App\Token('adb123);
 echo $token2->getValue(); 
+
 
  
  */

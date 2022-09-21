@@ -42,13 +42,13 @@ class User extends \Core\Model
      *
      * @return array
      */
-    /* public static function getAll()
+    public static function getAll()
     {
         $db = static::getDB();
-        $stmt = $db->query('SELECT id, name FROM users');
+        $stmt = $db->query('SELECT id, name, email FROM users');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
- */
+ 
   /**
    * Save the user model with the current property values
    *

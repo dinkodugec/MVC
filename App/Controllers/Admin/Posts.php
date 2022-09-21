@@ -37,4 +37,18 @@ class Posts extends \Core\Controller
             'posts' => $posts
           ]); 
     }
+
+     /**
+     * Insert post
+     *
+     * @return void
+     */
+    public function addPostAction()
+    {
+      /*   $posts = Post::getAll(); */
+        
+         View::renderTemplate('Admin/addPost.html', [
+            ''
+          ]); 
+    }
 }
