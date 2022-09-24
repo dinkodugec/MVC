@@ -35,9 +35,19 @@ class Posts extends \Core\Controller
      */
     public function addNewAction()
     {
-        View::renderTemplate('Posts/addNew.html',[
-            
-           ]);
+        $posts = new Post($_FILES);
+
+        var_dump($_FILES);
+
+     /*    if($posts->addPost()){
+            $this->redirect('/signup/success');
+        } */
+       
+
+
+         /*  View::renderTemplate('Posts/addNew.html',[
+              'posts' => $posts 
+           ]);   */
     }
 
      /**
