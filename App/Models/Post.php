@@ -41,6 +41,7 @@ class Post extends \Core\Model
     
       public static function addPost()
      
+   
       {
         if(isset($_POST['submit'])){
 
@@ -61,64 +62,24 @@ class Post extends \Core\Model
                      //checking image extension
                    $allowedExt = ["jpg", "png", "PNG", "JPG"];
                    if(in_array(explode('/',$fileType)[1],$allowedExt)){
-                    $destinationFolder = "upload";
+                    $destinationFolder = "../upload/upload";
                     echo move_uploaded_file($fileTemp, $destinationFolder.$fileName);
                    }else{
                     echo "The image must be png or jpeg"; //make some 404 page
                    }
                }else{
                 echo "The image file is corrupted"; //make some 404 page
-               
+
                }
               }else{
                 echo "The image file is corrupted"; //make some 404 page
-              }
+          
 
-            $exp = explode(".", $fileName);
-            $ext = end($exp);
-            $path = "/upload/".$fileName;
-            if(in_array($ext, $allowedExt)){
-                if(move_uploaded_file($fileTemp, $path)){
-                  /*   try{
-                        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                        $sql = "INSERT INTO `image`(image_name, location)  VALUES ('$file_name', '$path')";
-                        $conn->exec($sql);
-                    }catch(PDOException $e){
-                        echo $e->getMessage();
-                    }
-     
-                    $conn = null;
-                    header('location: index.php'); */
-
-                    $sql = 'INSERT INTO posts (title, content, image)
-                        VALUES  :title, :content, :image)';
-
-                        $db = static::getDB();
-                        $stmt = $db->prepare($sql);
-                    
-                    
-                        $stmt->execute(array($ext, $allowedExt)); 
-                    
                 }
             }
+
         }
-      }
-    
-    /**
-     * Updatea the posts 
-     *
-     * @return array
-     */
-    public static function update()
-    {
-    
     }
-}
-
-/* $sql = 'INSERT INTO posts (title, content, image)
-VALUES (?,?)';
-
-$db = static::getDB();
-$stmt = $db->prepare($sql);
-
-$stmt->execute(array($fileActualExt, $allowed));  */
+    
+        
+      

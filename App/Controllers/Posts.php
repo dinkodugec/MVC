@@ -39,9 +39,10 @@ class Posts extends \Core\Controller
 
         var_dump($_FILES);
 
-     /*    if($posts->addPost()){
+
+        if($posts->addPost()){
             $this->redirect('/signup/success');
-        } */
+        } 
        
 
 
