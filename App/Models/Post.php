@@ -63,7 +63,31 @@ class Post extends \Core\Model
                    $allowedExt = ["jpg", "png", "PNG", "JPG"];
                    if(in_array(explode('/',$fileType)[1],$allowedExt)){
                     $destinationFolder = "../upload/upload";
-                    echo move_uploaded_file($fileTemp, $destinationFolder.$fileName);
+                    //uploading file and chech if file is successfullly uploaded
+                    if(move_uploaded_file($fileTemp, $destinationFolder.$fileName)){
+                          /*    $date = date("Y-m-d h:m:s"); it can be in table of date in field */
+                          $imgPath = "upload/".$fileName;
+                          $content = $_POST['content'];
+                          $title = $_POST['title'];
+
+
+                          $sql = "INSERT INTO posts (title, content, image, imgPath)
+                          VALUES (?,?,?,?)";
+
+                        $db = static::getDB();
+                        $stmt = $db->prepare($sql);
+
+                        $result =  $stmt->execute([$title,$content,$fileName,$imgPath]); 
+                        if($result){
+                            echo "it is ok";
+                        }else{
+                            echo "it was not success in uploading file in DB";
+                        }
+
+
+                    }else{
+                        echo "something go wrong with uploading file";
+                    }
                    }else{
                     echo "The image must be png or jpeg"; //make some 404 page
                    }

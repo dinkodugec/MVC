@@ -35,9 +35,9 @@ class Posts extends \Core\Controller
      */
     public function addNewAction()
     {
-        $posts = new Post($_FILES);
+        $posts = new Post($_POST);
 
-        var_dump($_FILES);
+     /*    var_dump($_POST); */
 
 
         if($posts->addPost()){
