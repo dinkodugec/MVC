@@ -62,7 +62,9 @@ class Post extends \Core\Model
                      //checking image extension
                    $allowedExt = ["jpg", "png", "PNG", "JPG"];
                    if(in_array(explode('/',$fileType)[1],$allowedExt)){
-                    $destinationFolder = "../upload/upload";
+                  /*   $destinationFolder = "../upload/upload"; */
+                      $destinationFolder = "../App/Views/Admin/"; 
+
                     //uploading file and chech if file is successfullly uploaded
                     if(move_uploaded_file($fileTemp, $destinationFolder.$fileName)){
                           /*    $date = date("Y-m-d h:m:s"); it can be in table of date in field */
