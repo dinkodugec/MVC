@@ -37,11 +37,13 @@ class Posts extends \Core\Controller
     {
         $posts = new Post($_POST);
 
-     /*    var_dump($_POST); */
+     /*    var_dump($posts); it is now object */
 
 
         if($posts->addPost()){
-            $this->redirect('/signup/success');
+            View::renderTemplate('Admin/Posts/index.html',[
+                'posts' => $posts 
+             ]); 
         } 
        
 

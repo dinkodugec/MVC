@@ -24,7 +24,7 @@ class Post extends \Core\Model
            try {
            $db = static::getDB();
 
-            $stmt = $db->query('SELECT id, title, content FROM posts
+            $stmt = $db->query('SELECT id, title, content, image, imgPath FROM posts
                                ');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  //return values as associative array
 
