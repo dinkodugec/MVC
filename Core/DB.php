@@ -11,7 +11,7 @@ class DB
 
 
     private static $instance = null;
-    private static $conn;
+    private $conn;
 
     private $host = 'localhost';
     private $user = 'mvcuser';
@@ -23,17 +23,21 @@ class DB
       $this->conn = new PDO("mysql:host={$this->host};
       dbname={$this->name}", $this->user,$this->pass,
       array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+
+      $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
    
     }
 
     public static function getInstance()
     {
-      if(!self::$instance)
+      $data  = new DB;
+
+   /*    if(!self::$instance)
       {
         self::$instance = new DB();
-      }
+      } */
      
-      return self::$instance;
+      return $data->conn;
     }
     
     public static function getConnection()
@@ -44,7 +48,7 @@ class DB
   
 }
 
-$db = DB::getInstance();
+
 
 
 ?>

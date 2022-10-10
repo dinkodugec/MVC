@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Auth;
 use \Core\View;
-
+use \Core\DB;
 /**
  * Home controller
  */
@@ -39,6 +39,11 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
+
+        $db = DB::getInstance();
+
+        var_dump($db);
+       
           //echo 'Hello from the index action in the Home controller!';
         /*   View::render('Home/index.php'); */
 
