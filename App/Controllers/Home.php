@@ -40,9 +40,14 @@ class Home extends \Core\Controller
     public function indexAction()
     {
 
-        $db = DB::getInstance();
+          $query =  "SELECT id, title, content, image, imgPath FROM posts";
 
-        var_dump($db);
+          $result = DB:: queryExe($query);
+
+          var_dump($result);
+          die();
+
+       
        
           //echo 'Hello from the index action in the Home controller!';
         /*   View::render('Home/index.php'); */

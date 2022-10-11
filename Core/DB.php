@@ -45,6 +45,15 @@ class DB
       return self::$conn;
     }
 
+
+    public static function queryExe($query)
+    {
+            $data = new DB();
+
+            $stmt = $data->conn->query($query);
+
+           return  $stmt->fetchAll();  //return values as associative array
+    }
   
 }
 
