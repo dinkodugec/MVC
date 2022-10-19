@@ -31,8 +31,9 @@ class Posts extends \Core\Controller
      */
     public function indexAction()
     {
-        $posts = Post::getAll();
-        
+        $posts = Post::getAllwithUserName();
+      
+       /*  var_dump($posts); */
          View::renderTemplate('Admin/index.html', [
             'posts' => $posts
           ]); 

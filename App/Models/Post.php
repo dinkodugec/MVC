@@ -35,6 +35,28 @@ class Post extends \Core\Model
         }
     }
 
+    public static function getAllwithUserName()
+    {
+    
+
+           try {
+           $db = static::getDB();
+
+            $stmt = $db->query('SELECT p.id, p.title, p.content, p.image, p.imgPath, u.name FROM `posts` p inner join users u on p.user_id=u.id
+                               ');
+                               
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  //return values as associative array
+
+          
+            return $results;
+
+           
+            
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
         /***
          * Add new Post
          */
@@ -73,13 +95,13 @@ class Post extends \Core\Model
                           $title = $_POST['title'];
 
 
-                          $sql = "INSERT INTO posts (title, content, image, imgPath)
-                          VALUES (?,?,?,?)";
+                          $sql = "INSERT INTO posts (title, content, image, imgPath, user_id)
+                          VALUES (?,?,?,?,?)";
 
                         $db = static::getDB();
                         $stmt = $db->prepare($sql);
 
-                        $result =  $stmt->execute([$title,$content,$fileName,$imgPath]); 
+                        $result =  $stmt->execute([$title,$content,$fileName,$imgPath, $_SESSION['user_id']]); 
                         if($result){
                             echo "it is ok";
                         }else{
