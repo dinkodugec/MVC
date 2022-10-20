@@ -42,7 +42,7 @@ class Post extends \Core\Model
            try {
            $db = static::getDB();
 
-            $stmt = $db->query('SELECT p.id, p.title, p.content, p.image, p.imgPath, u.name FROM `posts` p inner join users u on p.user_id=u.id
+            $stmt = $db->query('SELECT p.id, p.title, p.image, u.name, u.email FROM `posts` p inner join users u on p.user_id=u.id
                                ');
                                
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  //return values as associative array
