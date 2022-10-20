@@ -85,7 +85,8 @@ class Post extends \Core\Model
                    $allowedExt = ["jpg", "png", "PNG", "JPG"];
                    if(in_array(explode('/',$fileType)[1],$allowedExt)){
                   /*   $destinationFolder = "../upload/upload"; */
-                      $destinationFolder = "../App/Views/Admin/"; 
+                       $destinationFolder = "../public/admin/posts/";  
+                  /*    $destinationFolder = "../App/public/admin/posts";  */
 
                     //uploading file and chech if file is successfullly uploaded
                     if(move_uploaded_file($fileTemp, $destinationFolder.$fileName)){
