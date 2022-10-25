@@ -127,7 +127,33 @@ class Post extends \Core\Model
                 }
             }
 
-        }
+      }
+
+      public static function deletePost($id)
+      {
+  
+        try {
+            $db = static::getDB();
+ 
+            $stmt = $db->prepare("DELETE from posts where id = ?");
+
+            $result =  $stmt->execute([$id]);
+ 
+           
+             return $result;
+
+        /*      $stmt = $pdo->prepare("DELETE FROM myTable WHERE id = ?");
+            $stmt->execute([$_SESSION['id']]);
+            $stmt = null; */
+            
+            
+             
+         } catch (PDOException $e) {
+             echo $e->getMessage();
+         }
+         
+
+      }
     }
     
         

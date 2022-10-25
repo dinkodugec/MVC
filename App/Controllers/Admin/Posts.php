@@ -32,6 +32,7 @@ class Posts extends \Core\Controller
     public function indexAction()
     {
         $posts = Post::getAllwithUserName();
+        
       
        /*  var_dump($posts); */
          View::renderTemplate('Admin/index.html', [
@@ -51,5 +52,16 @@ class Posts extends \Core\Controller
          View::renderTemplate('Admin/addPost.html', [
             ''
           ]); 
+    }
+
+    public function deletePostAction()
+    {
+    
+        $id = $_GET['id']; 
+         $postIsDeleted = Post::deletePost($id); 
+         
+
+           $this->indexAction(); 
+
     }
 }

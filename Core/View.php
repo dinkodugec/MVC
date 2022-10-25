@@ -50,6 +50,8 @@ class View
             $twig->addGlobal('flash_messages', \App\Flash::getMessages()); //message available
             $twig->addGlobal('posts', \App\Models\Post::getAll()); // posts like object available in all views
              $twig->addGlobal('users', \App\Models\USer::getAll()); 
+             
+            $twig->addExtension(new \Twig\Extension\DebugExtension());
         }
 
         echo $twig->render($template, $args);
