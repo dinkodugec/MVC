@@ -24,25 +24,63 @@ class Post extends \Core\Model
            try {
            $db = static::getDB();
 
-            $stmt = $db->query('SELECT id, title, content, image, imgPath FROM posts
+            $stmt = $db->query('SELECT id, title, content, image, imgPath, user_id FROM posts
                                ');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  //return values as associative array
 
+           
             return $results;
+            
             
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
 
-    public static function getAllwithUserName()
-    {
+       /**
+     * Get one post in an associative array / we can change method fetch, in fetchObj so get object back
+     *
+     * @return array
+     */
+
+     public static function getOnePost($id)
+    
+        {
     
 
            try {
            $db = static::getDB();
 
-            $stmt = $db->query('SELECT p.id, p.title, p.image, u.name, u.email FROM `posts` p inner join users u on p.user_id=u.id
+            $stmt = $db->prepare('SELECT id, title, content, image, imgPath, user_id FROM posts
+                               WHERE id = ?');
+           $stmt->execute([$id]);
+        
+           $results = $stmt->fetch(PDO::FETCH_ASSOC);  //return values as associative array
+          
+           
+            return $results;
+            
+            
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+
+    /**
+     * Get all the posts with username, we get from inner join two tables an associative array
+     *
+     * @return array
+     */
+
+    public static function getAllwithUserName()
+   
+     {
+    
+         try {
+           $db = static::getDB();
+
+            $stmt = $db->query('SELECT p.id, p.user_id, p.title, p.image, u.name, u.email FROM `posts` p inner join users u on p.user_id=u.id
                                ');
                                
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  //return values as associative array

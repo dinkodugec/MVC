@@ -34,7 +34,7 @@ class Posts extends \Core\Controller
         $posts = Post::getAllwithUserName();
         
       
-       /*  var_dump($posts); */
+      
          View::renderTemplate('Admin/index.html', [
             'posts' => $posts
           ]); 
@@ -54,14 +54,27 @@ class Posts extends \Core\Controller
           ]); 
     }
 
+    /**
+     * Delete Post
+     * User can delete only post which he posted himself
+     *
+     * @return void
+     */
+    
     public function deletePostAction()
     {
     
         $id = $_GET['id']; 
-         $postIsDeleted = Post::deletePost($id); 
-         
 
-           $this->indexAction(); 
+       $post = Post:: getOnePost($id);
+
+           if($post){  
+             if($_SESSION['user_id'] == $post['user_id']){
+              $postIsDeleted = Post::deletePost($id); 
+              }
+            }
+              
+         $this->indexAction(); 
 
     }
 }

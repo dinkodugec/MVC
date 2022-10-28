@@ -186,7 +186,7 @@
                   </td>
                   <td>{{ post.email}}</td>
                   <td>
-                    {%if current_user %}
+                    {% if post.user_id == session.user_id %}
                     <a
                       href="http://mvc.hr:8080/admin/posts/deletePost?id={{ post.id }}"
                       >Delete</a
