@@ -39,41 +39,29 @@ class Users extends \Core\Controller
           ]);  
     }
 
-     /**
-     * Insert post
-     *
-     * @return void
-     */
-    public function addPostAction()
-    {
-      /*   $posts = Post::getAll(); */
-        
-         View::renderTemplate('Admin/addPost.html', [
-            ''
-          ]); 
-    }
+    
 
     /**
-     * Delete Post
-     * User can delete only post which he posted himself
+     * Delete user ----
      *
      * @return void
      */
     
-    public function deletePostAction()
+    public function deleteUserAction()
     {
     
-       /*  $id = $_GET['id']; 
+         $id = $_GET['id']; 
 
-       $post = Post:: getOnePost($id);
-
-           if($post){  
-             if($_SESSION['user_id'] == $post['user_id']){
-              $postIsDeleted = Post::deletePost($id); 
+         $user = User:: getOneUser($id);
+       
+  
+             if($user){  
+               if($_SESSION['user_id'] == $user['id']){
+                $usertIsDeleted = User::deleteUser($id); 
+                }
               }
-            }
-              
-         $this->indexAction();  */
+                
+           $this->indexAction(); 
 
     }
 }

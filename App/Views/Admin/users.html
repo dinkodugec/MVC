@@ -177,15 +177,7 @@
                   <td>
                     {% if user.id == session.user_id %}
                     <a
-                      <!--
-                      href="http://mvc.hr:8080/admin/posts/deletePost?id={{ post.id }}"
-                      here
-                      route
-                      and
-                      method
-                      for
-                      delete
-                      users--
+                      href="http://mvc.hr:8080/admin/users/deleteUser?id={{ user.id }}"
                       >Delete</a
                     >
                     {% endif %}

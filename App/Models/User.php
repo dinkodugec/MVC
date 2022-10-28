@@ -227,4 +227,60 @@ class User extends \Core\Model
 
         return $stmt->execute();
     }
+
+           /**
+     * Get one user in ass array
+     *
+     * @return array
+     */
+
+    public static function getOneUser($id)
+    
+    {
+
+
+       try {
+       $db = static::getDB();
+
+        $stmt = $db->prepare('SELECT id, name, email FROM users
+                           WHERE id = ?');
+       $stmt->execute([$id]);
+    
+       $results = $stmt->fetch(PDO::FETCH_ASSOC);  //return values as associative array
+      
+       
+        return $results;
+        
+        
+    } catch (\PDOException $e) {
+        echo $e->getMessage();
+    }
+
+   }
+       /*
+        *
+         Delete User with id
+        *
+       */
+
+
+   public static function deleteUser($id)
+   {
+
+     try {
+         $db = static::getDB();
+
+         $stmt = $db->prepare("DELETE from users where id = ?");
+
+         $result =  $stmt->execute([$id]);
+
+        
+          return $result;
+        
+      } catch (\PDOException $e) {
+          echo $e->getMessage();
+      }
+      
+
+   }
 }
