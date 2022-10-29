@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Auth;
 use \Core\View;
 use \Core\DB;
+use \Model\Post;
+
 /**
  * Home controller
  */
@@ -39,22 +41,13 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
-/* 
-          $query =  "SELECT id, title, content, image, imgPath FROM posts";
-
-          $result = DB:: queryExe($query);
-
-          var_dump($result);
-          die();
- */
-       
-       
-          //echo 'Hello from the index action in the Home controller!';
-        /*   View::render('Home/index.php'); */
 
         View::renderTemplate('Home/index.html', [
-           'user' => Auth::getUser()  /* now rendering twig global variable */
-        ]); /* this is rendering Twig template */
+           'user' => Auth::getUser(),  /* now rendering twig global variable */
+           'posts'=> \App\Models\Post::getAll()
+       
+
+        ]); 
     }
     
 }

@@ -1,9 +1,28 @@
 {% extends 'base.html' %} {% block title %}Comments{% endblock %} {% block
 body%}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="thumbnails row">
+      {% for post in posts %}
+
+      <div class="col-xs-6 col-md-3">
+        <img
+          src="../admin/posts/{{ post.image }}"
+          width="170px;"
+          height="50px"
+          alt=""
+        />
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 <!-- Comments Form -->
 <div class="well">
   <h4>Leave a Comment:</h4>
-  <form role="form" method="post">
+  <form action="/comments/create" method="post">
     <div class="form-group">
       <label for="author">Author</label>
       <input type="text" name="author" class="form-control" />

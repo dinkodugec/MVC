@@ -38,4 +38,36 @@ class Comment extends \Core\Model
         }
     }
 
+     /**
+   * Save the comment  with the current property values
+   *
+   * @return void
+   */
+  public function save()
+  {
+
+  /*   $this->validate(); */
+
+    if(empty($this->errors)){
+ 
+
+    $sql = 'INSERT INTO comments (id, post_id, author, body)
+            VALUES (:id, :post_id, :author, :body)';
+
+    $db = static::getDB();
+    $stmt = $db->prepare($sql);
+
+    /* binding value from data to those parameters */
+    $stmt->bindValue(':name', $this->author, PDO::PARAM_STR);
+    $stmt->bindValue(':email', $this->body, PDO::PARAM_STR);
+   
+
+       return  $stmt->execute(); //true for success false on failure
+        } 
+
+     return false;
+ 
+ 
+    }
+
   }

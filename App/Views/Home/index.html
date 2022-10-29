@@ -23,4 +23,28 @@
 {% if session.user_id %} User with ID {{ session.user_id }} is logged in. {%
 endif %} {% else %}
 <a href="/signup/new">Sign up</a> or <a href="/login">log in</a>. {% endif %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="thumbnails row">
+      {% for post in posts %}
+
+      <div class="col-xs-6 col-md-3">
+        <a
+          href="http://mvc.hr:8080/comments/index?id={{ post.id }}"
+          class="thumbnail"
+        >
+          <img
+            src="admin/posts/{{ post.image }}"
+            width="170px;"
+            height="50px"
+            alt=""
+          />
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 {%endblock %}
