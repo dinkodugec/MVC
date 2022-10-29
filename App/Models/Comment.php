@@ -26,6 +26,7 @@ class Comment extends \Core\Model
 
             $stmt = $db->query('SELECT id, post_id, author, body FROM comments
                                ');
+        /*   $stmt = $db->query('SELECT id, post_id, author, body FROM comments ORDER BY post_id ASC'); */
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  //return values as associative array
 
            
