@@ -66,7 +66,7 @@ class Comment extends \Core\Model
 
 
          
-        $post_id =$_GET['id'];
+        $post_id =$_POST['id'];
         $author = $_POST['author'];
         $body = $_POST['body'];
    
