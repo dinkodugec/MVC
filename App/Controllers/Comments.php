@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use \Core\View;
 use App\Models\Comment;
+use App\Models\Post;
 
 
 
@@ -18,9 +19,12 @@ class Comments extends \Core\Controller
     public function indexAction()
     {
         $comments = Comment::getAll(); 
-        
+   
+       
         View::renderTemplate('Comment/index.html', [
-            'comments' => $comments 
+            'comments' => $comments,
+      
+
           ]);  
 
         
@@ -34,7 +38,7 @@ class Comments extends \Core\Controller
     public function createAction()
     {
        /* var_dump($_POST); */ //to see what is comming from post request in frim new.html 
-
+   
        $comment = new Comment($_POST); //passing arguments like this will, when you creating new object will invoke __construct
 
        if($comment->save()) {

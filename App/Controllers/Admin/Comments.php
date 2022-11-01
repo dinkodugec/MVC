@@ -21,6 +21,7 @@ class Comments extends \Core\Controller
         
         View::renderTemplate('Admin/comments.html', [
             'comments' => $comments
+
           ]); 
     }
 

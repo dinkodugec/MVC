@@ -12,6 +12,22 @@ use PDOException;
 class Comment extends \Core\Model
 {
 
+
+     /**
+   * Class constructor
+   *
+   * @param array $data  Initial property values
+   *
+   * @return void
+   */
+  public function __construct($data =[]) 
+  {
+    foreach ($data as $key => $value) {
+      $this->$key = $value;   
+    };
+ 
+  }
+
     /**
      * Get all the comments as an associative array
      *
@@ -48,24 +64,20 @@ class Comment extends \Core\Model
 
   /*   $this->validate(); */
 
-    if(empty($this->errors)){
- 
 
-    $sql = 'INSERT INTO comments (id, post_id, author, body)
-            VALUES (:id, :post_id, :author, :body)';
-
-    $db = static::getDB();
-    $stmt = $db->prepare($sql);
-
-    /* binding value from data to those parameters */
-    $stmt->bindValue(':name', $this->author, PDO::PARAM_STR);
-    $stmt->bindValue(':email', $this->body, PDO::PARAM_STR);
+         
+        $post_id =$_GET['id'];
+        $author = $_POST['author'];
+        $body = $_POST['body'];
    
+        $sql = "INSERT INTO comments (post_id, author, body)
+        VALUES (?,?,?)";
 
-       return  $stmt->execute(); //true for success false on failure
-        } 
+      $db = static::getDB();
+      $stmt = $db->prepare($sql);
 
-     return false;
+      $result =  $stmt->execute([$post_id, $author, $body]);
+   
  
  
     }
