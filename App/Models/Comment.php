@@ -82,4 +82,25 @@ class Comment extends \Core\Model
  
     }
 
+
+
+    public static function getCommentsByPostId($post_id)
+    {
+
+          $db = static::getDB();
+
+          $stmt = $db->prepare('SELECT id, post_id, author, body FROM comments WHERE 
+          post_id = ?');
+
+           $stmt ->execute([$post_id]);
+
+           /* $results = $stmt->fetchAll(PDO::FETCH_OBJ); here is object*/
+           $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+           /* var_dump($results);
+           die; */
+
+          return $results;
+
+    }
+
   }

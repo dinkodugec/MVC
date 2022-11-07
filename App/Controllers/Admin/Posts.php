@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Controllers\Admin;
+
+use App\Models\Comment;
 use \Core\View;
 use App\Models\Post;
+
 
 
 /**
@@ -32,9 +35,20 @@ class Posts extends \Core\Controller
     public function indexAction()
     {
         $posts = Post::getAllwithUserName();
-        
-      
-      
+     
+        for($i = 0; $i < count($posts); $i++){
+               /*  var_dump($key, $value);
+                die(); */
+                $posts[$i]['comments'] = Comment::getCommentsByPostId($posts[$i]['id']);
+             /*    var_dump($value);
+                die; */
+                
+        }
+
+      /*   var_dump($posts);
+        die; */
+
+
          View::renderTemplate('Admin/index.html', [
             'posts' => $posts
           ]); 
