@@ -78,6 +78,7 @@ $router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
 $router->add('{controller}/{id:\d+}/{action}');
 $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);//namespace like option 
 $router->add('post/delete/{id}',  ['namespace' => 'Admin', 'controller' => 'Posts',  'action' => 'deletePost']); 
+$router->add('comment/delete/{id}',  ['namespace' => 'Admin', 'controller' => 'Comments',  'action' => ' deleteComment']); 
     
 /* // Display the routing table */
 /* echo '<pre>';

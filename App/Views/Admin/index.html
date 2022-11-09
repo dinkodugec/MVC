@@ -197,7 +197,13 @@
                   </td>
                   <td>
                     {% for comment in post.comments %}
-                    <p>{{ comment.author }} : {{ comment.body }}</p>
+                    <p>
+                      {{ comment.author }} : {{ comment.body }}
+                      <a
+                        href="http://mvc.hr:8080/admin/comments/deleteComment?id={{ comment.id }}"
+                        >Delete</a
+                      >
+                    </p>
 
                     {% endfor %}
                   </td>

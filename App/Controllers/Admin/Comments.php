@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Controllers\Admin;
+
+
+use App\Controllers\Admin\Posts;
 use \Core\View;
 use App\Models\Comment;
 
@@ -32,20 +35,18 @@ class Comments extends \Core\Controller
      * @return void
      */
     
-    public function deleteCommentsAction()
+    public function deleteCommentAction()
     {
     
         $id = $_GET['id']; 
 
        $comments = Comment:: deleteComment($id);
 
-           if($comments){  
-             if($_SESSION['user_id'] == $post['user_id']){
-              $postIsDeleted = Comment::deleteComment($id); 
-              }
-            }
-              
-         $this->indexAction(); 
+       $postsController = new Posts('tz');
+
+       $postsController->indexAction();
+
+  
 
     }
 
