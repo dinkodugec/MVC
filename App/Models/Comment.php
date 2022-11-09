@@ -5,6 +5,7 @@ namespace App\Models;
 use PDO;
 use PDOException;
 
+
 /**
  * Comment model
 
@@ -103,4 +104,36 @@ class Comment extends \Core\Model
 
     }
 
-  }
+        /**
+     * Delete Comment
+     *
+     * @return void
+     */
+    
+    public static function deleteComment($id)
+    {
+    
+      try {
+        $db = static::getDB();
+
+        $stmt = $db->prepare("DELETE from comments where id = ?");
+
+        $result =  $stmt->execute([$id]);
+
+       
+         return $result;
+
+        
+         
+     } catch (PDOException $e) {
+         echo $e->getMessage();
+     }
+     
+
+   }
+
+}
+
+    
+
+  

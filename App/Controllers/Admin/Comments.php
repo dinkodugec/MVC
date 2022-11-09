@@ -25,6 +25,30 @@ class Comments extends \Core\Controller
           ]); 
     }
 
+     /**
+     * Delete Comments
+     * User can delete only comment which he posted himself
+     *
+     * @return void
+     */
+    
+    public function deleteCommentsAction()
+    {
+    
+        $id = $_GET['id']; 
+
+       $comments = Comment:: deleteComment($id);
+
+           if($comments){  
+             if($_SESSION['user_id'] == $post['user_id']){
+              $postIsDeleted = Comment::deleteComment($id); 
+              }
+            }
+              
+         $this->indexAction(); 
+
+    }
+
 
 
 

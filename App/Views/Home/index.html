@@ -42,9 +42,31 @@ endif %} {% else %}
           />
         </a>
       </div>
-      {% endfor %}
     </div>
+    <div class="col-xs-6 col-md-3">
+      <a
+        href="http://mvc.hr:8080/comments/index?id={{ post.id }}"
+        class="thumbnail"
+      >
+        <h2>{{ post.title}}</h2>
+      </a>
+    </div>
+    {% endfor %}
   </div>
 </div>
+<div class="container text-center">
+  } {% for post in posts %}
+  <div class="row">
+    <div class="card w-25 mb-5 mx-auto">
+      <img src="admin/posts/{{ post.image }}" alt="" class="card-img-top" />
+      <div class="card-body">
+        <a href="http://mvc.hr:8080/comments/index?id={{ post.id }}">
+          <h4 class="card-title">{{ post.title}}</h4></a
+        >
+      </div>
+    </div>
+  </div>
 
+  {% endfor %}
+</div>
 {%endblock %}

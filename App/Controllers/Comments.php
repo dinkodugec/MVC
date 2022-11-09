@@ -23,7 +23,8 @@ class Comments extends \Core\Controller
        
         View::renderTemplate('Comment/index.html', [
             'comments' => $comments,
-            'id' => $_GET['id']
+            'id' => $_GET['id'],
+            'author' =>  $_SESSION['user_name']
       
 
           ]);  
