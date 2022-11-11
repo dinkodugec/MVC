@@ -41,7 +41,7 @@ class Comment extends \Core\Model
            try {
            $db = static::getDB();
 
-            $stmt = $db->query('SELECT id, post_id, author, body FROM comments
+            $stmt = $db->query('SELECT id, post_id, author, body FROM comments 
                                ');
         /*   $stmt = $db->query('SELECT id, post_id, author, body FROM comments ORDER BY post_id ASC'); */
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  //return values as associative array
@@ -78,6 +78,8 @@ class Comment extends \Core\Model
       $stmt = $db->prepare($sql);
 
       $result =  $stmt->execute([$post_id, $author, $body]);
+
+      return $result;
    
  
  
