@@ -32,7 +32,8 @@ class Dashboard extends \Core\Controller
     $users = User:: getAll();
 
     View::renderTemplate('Admin/dashboard.html', [
-      'user' => $users
+      'user' => $users,
+      'postsCount' => count(\App\Models\Post::getAll())
     ]); 
 }
 
