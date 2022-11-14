@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Comment;
 use \Core\View;
 use App\Models\Post;
 
@@ -63,5 +64,29 @@ class Posts extends \Core\Controller
         echo 'Hello from the edit action in the Posts controller!';
         echo '<p>Route parameters: <pre>' .
              htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';  //print all route parameters pass to object
+    }
+
+
+
+
+    public function showPostAction()
+    {
+            $id = $_GET['id'];
+
+            $onePost = Post::getOnePost($id);
+
+            $comments = Comment::getCommentsByPostId($id);
+
+            View::renderTemplate('Posts/show.html', [
+                'post' => $onePost,
+                'comments' => $comments
+              ]);
+
+
+
+            
+
+            
+        
     }
 }

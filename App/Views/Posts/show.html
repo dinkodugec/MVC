@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block title %}Post{% endblock %} {% block body%}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="thumbnails row">
+      <h2>{{ post.title }}</h2>
+      <div class="col-xs-6 col-md-3">
+        <img
+          src="../admin/posts/{{ post.image }}"
+          width="170px;"
+          height="50px"
+          alt=""
+        />
+      </div>
+      <p>{{ post.content }}</p>
+    </div>
+  </div>
+</div>
+
+{% for comment in comments %}
+<div class="row">
+  <div class="col">
+    <p>Name: {{ comment.author }}</p>
+    <p>Content: {{ comment.body }}</p>
+  </div>
+</div>
+<hr />
+{% endfor %}
+
+<!-- Comments Form -->
+<div class="well">
+  <h4>Leave a Comment:</h4>
+  <form action="/comments/create" method="post">
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input type="text" name="author" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+      <textarea name="body" class="form-control" rows="3"></textarea>
+    </div>
+    <input type="hidden" name="id" value="{{ post.id }}" />
+    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock %}
