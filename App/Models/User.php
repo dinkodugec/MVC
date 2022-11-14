@@ -46,7 +46,10 @@ class User extends \Core\Model
     {
         $db = static::getDB();
         $stmt = $db->query('SELECT id, name, email FROM users');
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $result =  $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
     }
  
   /**

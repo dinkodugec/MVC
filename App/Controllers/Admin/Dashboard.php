@@ -29,11 +29,10 @@ class Dashboard extends \Core\Controller
       return $_SESSION['count'] = 1;
     } */
 
-    $users = User:: getAll();
-
     View::renderTemplate('Admin/dashboard.html', [
-      'user' => $users,
-      'postsCount' => count(\App\Models\Post::getAll())
+      'postsCount' => count(\App\Models\Post::getAll()),
+      'totalUsers' => count(\App\Models\User::getAll())
+
     ]); 
 }
 

@@ -6,6 +6,7 @@ use App\Auth;
 use \Core\View;
 use \Core\DB;
 use \Model\Post;
+use \Model\User;
 
 /**
  * Home controller
@@ -45,7 +46,9 @@ class Home extends \Core\Controller
         View::renderTemplate('Home/index.html', [
            'user' => Auth::getUser(),  /* now rendering twig global variable */
            'posts'=> \App\Models\Post::getAll(),
-           'postsCount' => count(\App\Models\Post::getAll())
+         /*   'users' => \App\Models\User::getAll(), */
+           'postsCount' => count(\App\Models\Post::getAll()),
+           /* 'totalUsers' => count(\App\Models\User::getAll()) */
 
         ]); 
     }
