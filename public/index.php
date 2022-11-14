@@ -80,6 +80,7 @@ $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);//namespac
 $router->add('post/delete/{id}',  ['namespace' => 'Admin', 'controller' => 'Posts',  'action' => 'deletePost']); 
 $router->add('comment/delete/{id}',  ['namespace' => 'Admin', 'controller' => 'Comments',  'action' => ' deleteComment']); 
 $router->add('post', ['controller' => 'Posts', 'action' => 'showPost']);
+/* $router->add('admin', ['namespace' => 'Admin','controller' => 'Dashboard', 'action' => 'index']); */
     
 /* // Display the routing table */
 /* echo '<pre>';

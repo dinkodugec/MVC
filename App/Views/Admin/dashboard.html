@@ -1,36 +1,5 @@
 {% block body %}
 
-<!-- <div class="container">
-  {% for post in posts %}
-  <h2>{{ post.title}}</h2>
-  <p>{{ post.content}}</p>
-  <p><img src="{{ post.image }}" alt="" /></p>
-
-  {% endfor %}
-</div>
- -->
-<!-- <table class="table table-striped table-hove">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Title</th>
-      <th scope="col">Content</th>
-      <th scope="col">Image</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for post in posts %}
-    <tr>
-      <th scope="row">1</th>
-      <td>{{ post.title}}</td>
-      <td>{{ post.content }}</td>
-      <td>
-        <img src="{{ post.image }}" width="170px;" height="50px" alt="" />
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table> -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -66,6 +35,32 @@
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
+
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Task", "Hours per Day"],
+          ["Work", 11],
+          ["Eat", 2],
+          ["Commute", 2],
+          ["Watch TV", 2],
+          ["Sleep", 7],
+        ]);
+
+        var options = {
+          title: "My Daily Activities",
+        };
+
+        var chart = new google.visualization.PieChart(
+          document.getElementById("piechart")
+        );
+
+        chart.draw(data, options);
+      }
+    </script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -274,6 +269,10 @@
                 </div>
               </div>
             </div>
+
+            <!--  google pie chart -->
+            <div id="piechart" style="width: 900px; height: 500px"></div>
+
             <!--First Row-->
           </div>
           <!-- /.row -->
