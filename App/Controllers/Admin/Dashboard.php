@@ -11,10 +11,23 @@ class Dashboard extends \Core\Controller
 
 {
 
+  public $count;
+
 
   public function indexAction()
 
   {
+      // just to see how much people start session in our web site
+     $_SESSION['pageCounter'] = $_SESSION['pageCounter'] +1;
+
+/*     if(isset($_SESSION['count'])){
+
+      return $this->count = $_SESSION['count']+1;
+      
+    }else{
+
+      return $_SESSION['count'] = 1;
+    } */
 
     $users = User:: getAll();
 
