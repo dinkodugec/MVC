@@ -61,10 +61,10 @@ endif %} {% else %}
       {% for post in posts %}
       <div class="col-xs-6 col-md-3">
         <!-- responsive element that will activate some media query -->
-        <a
-          href="http://mvc.hr:8080/comments/index?id={{ post.id }}"
+        <!--   <a
+         href="http://mvc.hr:8080/comments/index?id={{ post.id }}" 
           class="thumbnail"
-        >
+        > --><a href="/posts/showPost?id={{ post.id }}" class="thumbnail">
           <img
             src="admin/posts/{{ post.image }}"
             width="200px;"
