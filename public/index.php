@@ -81,6 +81,7 @@ $router->add('post/delete/{id}',  ['namespace' => 'Admin', 'controller' => 'Post
 $router->add('comment/delete/{id}',  ['namespace' => 'Admin', 'controller' => 'Comments',  'action' => ' deleteComment']); 
 $router->add('post', ['controller' => 'Posts', 'action' => 'showPost']);
 /* $router->add('admin', ['namespace' => 'Admin','controller' => 'Dashboard', 'action' => 'index']); */
+$router->add('getalldata', ['controller' => 'AjaxController', 'action' => 'allDAta']);
     
 /* // Display the routing table */
 /* echo '<pre>';
@@ -116,4 +117,3 @@ echo $token2->getValue();
 /* 
 echo password_hash("ron",PASSWORD_DEFAULT); */
 ?>
-<!-- <a href="/admin/index.php">Admin</a> -->

@@ -24,7 +24,7 @@
 endif %} {% else %}
 <a href="/signup/new">Sign up</a> or <a href="/login">log in</a>. {% endif %}
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-12">
     <div class="thumbnails row">
       {% for post in posts %}
@@ -53,8 +53,32 @@ endif %} {% else %}
     </div>
     {% endfor %}
   </div>
+</div> -->
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="thumbnails row">
+      {% for post in posts %}
+      <div class="col-xs-6 col-md-3">
+        <!-- responsive element that will activate some media query -->
+        <a
+          href="http://mvc.hr:8080/comments/index?id={{ post.id }}"
+          class="thumbnail"
+        >
+          <img
+            src="admin/posts/{{ post.image }}"
+            width="200px;"
+            height="150px"
+            class="homePagePhoto"
+          />
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
-<div class="container text-center">
+
+<!-- <div class="container text-center">
   } {% for post in posts %}
   <div class="row">
     <div class="card w-25 mb-5 mx-auto">
@@ -68,9 +92,9 @@ endif %} {% else %}
   </div>
 
   {% endfor %}
-</div>
+</div> -->
 
-<div class="container">
+<!-- <div class="container">
   <div class="row">All posts:{{ postsCount }}</div>
-</div>
+</div> -->
 {%endblock %}
