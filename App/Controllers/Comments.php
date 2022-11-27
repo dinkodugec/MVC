@@ -50,11 +50,11 @@ class Comments extends \Core\Controller
        /*  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/public/index.php?signup/success', true, 303);
             exit;    */               /*   mvc.hr::8080  in my project*/
 
-            $this->redirect('/signup/success');
+            $this->redirect('/');
 
        } else{
 
-        View::renderTemplate('Signup/new.html', [
+        View::renderTemplate('/', [
           'comment' => $comment//passing user model
         ]);  
 
