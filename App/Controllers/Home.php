@@ -7,6 +7,7 @@ use \Core\View;
 use \Core\DB;
 use \Model\Post;
 use \Model\User;
+use \Model\Paginate;
 
 /**
  * Home controller
@@ -43,12 +44,21 @@ class Home extends \Core\Controller
     public function indexAction()
     {
 
+       $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
+       $items_per_page = 4;
+       $items_total_cunt = \App\Models\Post::getAll();
+
+       $paginate = new \App\Models\Paginate($page, $items_per_page, $items_total_cunt);
+       
+
+
         View::renderTemplate('Home/index.html', [
            'user' => Auth::getUser(),  /* now rendering twig global variable */
            'posts'=> \App\Models\Post::getAll(),
          /*   'users' => \App\Models\User::getAll(), */
            'postsCount' => count(\App\Models\Post::getAll()),
            /* 'totalUsers' => count(\App\Models\User::getAll()) */
+
 
         ]); 
     }

@@ -192,6 +192,33 @@ class Post extends \Core\Model
          
 
       }
+
+          /**
+     * Get all the posts as an associative array
+     *
+     * @return array
+     */
+   /*  public static function getAll()
+    {
+    
+
+           try {
+           $db = static::getDB();
+
+            $stmt = $db->query('SELECT id, title, content, image, imgPath, user_id FROM posts ORDER BY id DESC
+                               ');
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  //return values as associative array
+
+           
+            return $results;
+            
+            
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+ */
+    
     }
     
         

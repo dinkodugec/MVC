@@ -78,6 +78,38 @@ endif %} {% else %}
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <select name="drzava" id="drzava">
+        <option value="srbija">Srbija</option>
+        <option value="hrvatska">Hrvatska</option>
+        <option value="bih">Bih</option>
+      </select>
+      <p id="ispis"></p>
+      <input type="text" id="polje" />
+    </div>
+  </div>
+</div>
+
+<!-- <script>
+  window.onload = function () {
+    drzava = document.getElementById("drzava");
+    console.log(drzava);
+    drzava.addEventListener("change", function () {
+      /* console.log("promjenjeno"); */
+      izabrani = this.value;
+      ispis = document.getElementById("ispis");
+      ispis.innerHTML = izabrani;
+    });
+    polje = document.getElementById("polje");
+    polje.addEventListener("input", function () {
+      ispis = document.getElementById("ispis");
+      ispis.innerHTML = this.value;
+    });
+  };
+</script> -->
+
 <!-- <div class="container text-center">
   } {% for post in posts %}
   <div class="row">
