@@ -305,8 +305,41 @@ class User extends \Core\Model
 
         if ($user) {
 
-            // 
+            if ($user->startPasswordReset()) {
+
+                // Send email here...                
+
+            }
 
         }
+    }
+
+     /**
+     * Start the password reset process by generating a new token and expiry
+     *
+     * @return void
+     */
+    protected function startPasswordReset()
+    {
+        $token = new Token();   
+        $hashed_token = $token->getHash();  //generate new token 
+
+        $expiry_timestamp = time() + 60 * 60 * 2;  // 2 hours from now expiry
+
+        $sql = 'UPDATE users 
+                SET password_reset_hash = :token_hash,
+                    password_reset_expires_at = :expires_at
+                WHERE id = :id';      //sql to update user record in DB
+
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);  //prepare sql statement
+
+
+        //bind values to placeholder in sql
+        $stmt->bindValue(':token_hash', $hashed_token, PDO::PARAM_STR);
+        $stmt->bindValue(':expires_at', date('Y-m-d H:i:s', $expiry_timestamp), PDO::PARAM_STR);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+
+        return $stmt->execute();   //execute statement
     }
 }
