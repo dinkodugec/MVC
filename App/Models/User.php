@@ -290,4 +290,23 @@ class User extends \Core\Model
       
 
    }
+
+
+      /**
+     * Send password reset instructions to the user specified
+     *
+     * @param string $email The email address
+     *
+     * @return void
+     */
+    public static function sendPasswordReset($email)
+    {
+        $user = static::findByEmail($email);
+
+        if ($user) {
+
+            // 
+
+        }
+    }
 }
