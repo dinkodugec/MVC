@@ -42,4 +42,18 @@
      * @var boolean
      */
     const SECRET_KEY = 'S0MYpu1Ulp9yezp4TdjTD40KHEnamwnD';
+
+     /**
+     * Mailgun API key
+     *
+     * @var string
+     */
+    const MAILGUN_API_KEY = '';
+
+    /**
+     * Mailgun domain
+     *
+     * @var string
+     */
+    const MAILGUN_DOMAIN = '';
  }

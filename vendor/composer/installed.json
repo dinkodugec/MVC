@@ -1,6 +1,67 @@
 {
     "packages": [
         {
+            "name": "bulldog/http-factory",
+            "version": "v1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bulldogcreative/http-factory.git",
+                "reference": "6fd7d2e92e359bc1cac5267fb06e157027ff9a02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bulldogcreative/http-factory/zipball/6fd7d2e92e359bc1cac5267fb06e157027ff9a02",
+                "reference": "6fd7d2e92e359bc1cac5267fb06e157027ff9a02",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/psr7": "^1.4",
+                "psr/http-factory": "^1.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.2",
+                "zendframework/zend-diactoros": "^1.8"
+            },
+            "time": "2020-10-22T12:20:06+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Bulldog\\HttpFactory\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Levi Durfee",
+                    "email": "ldurfee@bulldogcreative.com"
+                }
+            ],
+            "description": "A PSR-17 compliant HTTP Factory",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "support": {
+                "issues": "https://github.com/bulldogcreative/http-factory/issues",
+                "source": "https://github.com/bulldogcreative/http-factory/tree/v1.0.1"
+            },
+            "install-path": "../bulldog/http-factory"
+        },
+        {
             "name": "clue/stream-filter",
             "version": "v1.6.0",
             "version_normalized": "1.6.0.0",
@@ -68,6 +129,269 @@
                 }
             ],
             "install-path": "../clue/stream-filter"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.9.0",
+            "version_normalized": "1.9.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "e98e3e6d4f86621a9b75f623996e6bbdeb4b9318"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/e98e3e6d4f86621a9b75f623996e6bbdeb4b9318",
+                "reference": "e98e3e6d4f86621a9b75f623996e6bbdeb4b9318",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "ext-zlib": "*",
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
+            },
+            "suggest": {
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
+            },
+            "time": "2022-06-20T21:43:03+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "psr-7",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "support": {
+                "issues": "https://github.com/guzzle/psr7/issues",
+                "source": "https://github.com/guzzle/psr7/tree/1.9.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../guzzlehttp/psr7"
+        },
+        {
+            "name": "kriswallsmith/buzz",
+            "version": "1.2.1",
+            "version_normalized": "1.2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/Buzz.git",
+                "reference": "2db23c3627ae7a86240ef2e68c6f8bb2c622e90d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/2db23c3627ae7a86240ef2e68c6f8bb2c622e90d",
+                "reference": "2db23c3627ae7a86240ef2e68c6f8bb2c622e90d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "php-http/httplug": "^1.1 || ^2.0",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "symfony/options-resolver": "^3.4 || ^4.0 || ^5.0 || ^6.0"
+            },
+            "provide": {
+                "php-http/client-implementation": "1.0",
+                "psr/http-client-implementation": "1.0"
+            },
+            "require-dev": {
+                "nyholm/psr7": "^1.0",
+                "php-http/client-integration-tests": "^3.0",
+                "phpunit/phpunit": "^7.5 || ^9.4",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "ext-curl": "To use our cUrl clients",
+                "nyholm/psr7": "For PSR-7 and PSR-17 implementation"
+            },
+            "time": "2022-03-25T13:55:55+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Buzz\\": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "https://kriswallsmith.net/"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://tnyholm.se/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
+            ],
+            "support": {
+                "issues": "https://github.com/kriswallsmith/Buzz/issues",
+                "source": "https://github.com/kriswallsmith/Buzz/tree/1.2.1"
+            },
+            "install-path": "../kriswallsmith/buzz"
+        },
+        {
+            "name": "loophp/psr17",
+            "version": "1.0.4",
+            "version_normalized": "1.0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/loophp/psr17.git",
+                "reference": "83a363a32ca5eb44e69fda0deaa027e76dc8cbe8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/loophp/psr17/zipball/83a363a32ca5eb44e69fda0deaa027e76dc8cbe8",
+                "reference": "83a363a32ca5eb44e69fda0deaa027e76dc8cbe8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 7.4",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "drupol/php-conventions": "^5",
+                "ext-pcov": "*",
+                "friends-of-phpspec/phpspec-code-coverage": "^6",
+                "infection/infection": "^0.23 || ^0.24",
+                "infection/phpspec-adapter": "^0.1.1",
+                "nyholm/psr7": "^1.4",
+                "phpspec/phpspec": "^7.1"
+            },
+            "suggest": {
+                "nyholm/psr7": "A super lightweight PSR-7 implementation"
+            },
+            "time": "2022-08-28T18:20:24+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "loophp\\psr17\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pol Dellaiera",
+                    "email": "pol.dellaiera@protonmail.com"
+                }
+            ],
+            "description": "Provides a PSR17 synthetic implementation.",
+            "homepage": "http://github.com/loophp/psr17",
+            "keywords": [
+                "factory",
+                "psr-17"
+            ],
+            "support": {
+                "docs": "https://github.com/loophp/psr17",
+                "issues": "https://github.com/loophp/psr17/issues",
+                "source": "https://github.com/loophp/psr17"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/drupol",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.paypal.me/drupol",
+                    "type": "paypal"
+                }
+            ],
+            "install-path": "../loophp/psr17"
         },
         {
             "name": "mailgun/mailgun-php",
@@ -956,6 +1280,53 @@
                 "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
             "install-path": "../psr/log"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
+            "version_normalized": "3.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
+            },
+            "time": "2019-03-08T08:55:37+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "support": {
+                "issues": "https://github.com/ralouphie/getallheaders/issues",
+                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
+            },
+            "install-path": "../ralouphie/getallheaders"
         },
         {
             "name": "symfony/deprecation-contracts",

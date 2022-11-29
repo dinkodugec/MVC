@@ -17,6 +17,8 @@ ini_set('session.cookie_lifetime', '864000');   ///ten days in seconds...when se
 require_once dirname(__DIR__) . '/vendor/Autoload.php'; //this load all third party packages 
 
 
+
+
 /* Composer  */
 
 /* require '../vendor/autoload.php'; */

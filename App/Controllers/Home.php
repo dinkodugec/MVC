@@ -49,6 +49,8 @@ class Home extends \Core\Controller
        $items_total_cunt = \App\Models\Post::getAll();
 
        $paginate = new \App\Models\Paginate($page, $items_per_page, $items_total_cunt);
+
+       /* \App\Mail::send('dinko.dugec@gmail.com', 'Test', 'This is a test', '<h1>This is a test</h1>'); */
        
 
 

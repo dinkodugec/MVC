@@ -8,7 +8,9 @@ class ComposerStaticInitccf35b4e9271d2887e888e7226dd03ea
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
         '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
@@ -17,6 +19,10 @@ class ComposerStaticInitccf35b4e9271d2887e888e7226dd03ea
     );
 
     public static $prefixLengthsPsr4 = array (
+        'l' => 
+        array (
+            'loophp\\psr17\\' => 13,
+        ),
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
@@ -60,10 +66,19 @@ class ComposerStaticInitccf35b4e9271d2887e888e7226dd03ea
             'Http\\Client\\Common\\' => 19,
             'Http\\Client\\' => 12,
         ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+        ),
         'C' => 
         array (
             'Core\\' => 5,
             'Clue\\StreamFilter\\' => 18,
+        ),
+        'B' => 
+        array (
+            'Buzz\\' => 5,
+            'Bulldog\\HttpFactory\\' => 20,
         ),
         'A' => 
         array (
@@ -73,6 +88,10 @@ class ComposerStaticInitccf35b4e9271d2887e888e7226dd03ea
     );
 
     public static $prefixDirsPsr4 = array (
+        'loophp\\psr17\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/loophp/psr17/src',
+        ),
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
@@ -119,8 +138,8 @@ class ComposerStaticInitccf35b4e9271d2887e888e7226dd03ea
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -148,8 +167,8 @@ class ComposerStaticInitccf35b4e9271d2887e888e7226dd03ea
         ),
         'Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
-            1 => __DIR__ . '/..' . '/php-http/message/src',
+            0 => __DIR__ . '/..' . '/php-http/message/src',
+            1 => __DIR__ . '/..' . '/php-http/message-factory/src',
         ),
         'Http\\Discovery\\' => 
         array (
@@ -163,6 +182,10 @@ class ComposerStaticInitccf35b4e9271d2887e888e7226dd03ea
         array (
             0 => __DIR__ . '/..' . '/php-http/httplug/src',
         ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
         'Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Core',
@@ -170,6 +193,14 @@ class ComposerStaticInitccf35b4e9271d2887e888e7226dd03ea
         'Clue\\StreamFilter\\' => 
         array (
             0 => __DIR__ . '/..' . '/clue/stream-filter/src',
+        ),
+        'Buzz\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kriswallsmith/buzz/lib',
+        ),
+        'Bulldog\\HttpFactory\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bulldog/http-factory/src',
         ),
         'App\\' => 
         array (

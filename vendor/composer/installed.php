@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '6295e08a31d7e7540fbae62174fc2e2acef83680',
+        'reference' => '54f7a137dcd0f98c7b92587ad87b6f533a1da750',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,16 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '6295e08a31d7e7540fbae62174fc2e2acef83680',
+            'reference' => '54f7a137dcd0f98c7b92587ad87b6f533a1da750',
+            'dev_requirement' => false,
+        ),
+        'bulldog/http-factory' => array(
+            'pretty_version' => 'v1.0.1',
+            'version' => '1.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../bulldog/http-factory',
+            'aliases' => array(),
+            'reference' => '6fd7d2e92e359bc1cac5267fb06e157027ff9a02',
             'dev_requirement' => false,
         ),
         'clue/stream-filter' => array(
@@ -26,6 +35,33 @@
             'install_path' => __DIR__ . '/../clue/stream-filter',
             'aliases' => array(),
             'reference' => 'd6169430c7731d8509da7aecd0af756a5747b78e',
+            'dev_requirement' => false,
+        ),
+        'guzzlehttp/psr7' => array(
+            'pretty_version' => '1.9.0',
+            'version' => '1.9.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../guzzlehttp/psr7',
+            'aliases' => array(),
+            'reference' => 'e98e3e6d4f86621a9b75f623996e6bbdeb4b9318',
+            'dev_requirement' => false,
+        ),
+        'kriswallsmith/buzz' => array(
+            'pretty_version' => '1.2.1',
+            'version' => '1.2.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kriswallsmith/buzz',
+            'aliases' => array(),
+            'reference' => '2db23c3627ae7a86240ef2e68c6f8bb2c622e90d',
+            'dev_requirement' => false,
+        ),
+        'loophp/psr17' => array(
+            'pretty_version' => '1.0.4',
+            'version' => '1.0.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../loophp/psr17',
+            'aliases' => array(),
+            'reference' => '83a363a32ca5eb44e69fda0deaa027e76dc8cbe8',
             'dev_requirement' => false,
         ),
         'mailgun/mailgun-php' => array(
@@ -65,6 +101,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '*',
+                1 => '1.0',
             ),
         ),
         'php-http/discovery' => array(
@@ -164,6 +201,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '1.0',
+                1 => '1.0.0',
             ),
         ),
         'psr/http-message' => array(
@@ -188,6 +226,15 @@
             'install_path' => __DIR__ . '/../psr/log',
             'aliases' => array(),
             'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+            'dev_requirement' => false,
+        ),
+        'ralouphie/getallheaders' => array(
+            'pretty_version' => '3.0.3',
+            'version' => '3.0.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ralouphie/getallheaders',
+            'aliases' => array(),
+            'reference' => '120b605dfeb996808c31b6477290a714d356e822',
             'dev_requirement' => false,
         ),
         'symfony/deprecation-contracts' => array(
