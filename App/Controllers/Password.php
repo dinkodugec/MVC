@@ -41,6 +41,10 @@ class Password extends \Core\Controller
     {
         $token = $this->route_params['token'];  //token value from url
 
-        echo $token;
+       /*  echo $token; */
+
+       $user = User::findByPasswordReset($token);  //call method from user class and passing token from url
+
+       var_dump($user);
     }
 }
