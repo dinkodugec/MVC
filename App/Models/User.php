@@ -114,7 +114,7 @@ class User extends \Core\Model
         }
 
        // Password
-       if ($this->password != $this->password_confirmation) {
+       if (strlen($this->password) < 6) {
            $this->errors[] = 'Password must match confirmation';
        }
 
@@ -423,6 +423,25 @@ class User extends \Core\Model
 
         $this->validate();
 
-        return empty($this->errors);
+        if (empty($this->errors)) {
+
+            $password_hash = password_hash($this->password, PASSWORD_DEFAULT);
+
+            $sql = 'UPDATE users
+                    SET password_hash = :password_hash,
+                        password_reset_hash = NULL,    /* clear password field */
+                        password_reset_expires_at = NULL    /* clear password field */
+                    WHERE id = :id';
+
+            $db = static::getDB();
+            $stmt = $db->prepare($sql);
+
+            $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+            $stmt->bindValue(':password_hash', $password_hash, PDO::PARAM_STR);
+
+            return $stmt->execute();
+        }
+
+        return false;
     }
 }
