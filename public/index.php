@@ -84,6 +84,8 @@ $router->add('comment/delete/{id}',  ['namespace' => 'Admin', 'controller' => 'C
 $router->add('post', ['controller' => 'Posts', 'action' => 'showPost']);
 /* $router->add('admin', ['namespace' => 'Admin','controller' => 'Dashboard', 'action' => 'index']); */
 $router->add('getalldata', ['controller' => 'AjaxController', 'action' => 'allDAta']);
+$router->add('password/reset/{token:[\da-f]+}', ['controller' => 'Password', 'action' => 'reset']);  //token is hexadecimal value which contains letters from a-f and numbers
+
     
 /* // Display the routing table */
 /* echo '<pre>';
