@@ -109,9 +109,9 @@ class User extends \Core\Model
            $this->errors[] = 'Invalid email';
        }
 
-       if ($this->emailExists($this->email)) {
+       if (static::emailExists($this->email, $this->id ?? null)) {  //null means it is new record
         $this->errors[] = 'email already taken';
-    }
+        }
 
        // Password
        if ($this->password != $this->password_confirmation) {
@@ -138,9 +138,18 @@ class User extends \Core\Model
      *
      * @return boolean  True if a record already exists with the specified email, false otherwise
      */
-    protected function emailExists($email)
+    protected function emailExists($email, $ignore_id = null)
     {
-     return static::findByEmail($email) !== false;
+    $user = static::findByEmail($email);
+
+        if ($user) {
+            if ($user->id != $ignore_id) {
+                return true;
+            }
+        }
+
+    return false;
+
     }
 
     /**
@@ -399,5 +408,21 @@ class User extends \Core\Model
 
             }
         }
+    }
+
+        /**
+     * Reset the password
+     *
+     * @param string $password The new password
+     *
+     * @return boolean  True if the password was updated successfully, false otherwise
+     */
+    public function resetPassword($password)
+    {
+        $this->password = $password;
+
+        $this->validate();
+
+        return empty($this->errors);
     }
 }
