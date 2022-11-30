@@ -43,18 +43,12 @@ class Password extends \Core\Controller
 
        /*  echo $token; */
 
-       $user = User::findByPasswordReset($token);  //call method from user class and passing token from url
+       $user = $this->getUserOrExit($token);
 
-       if($user){
-          
         View::renderTemplate('Password/reset.html',[
              'token' => $token
         ]);
 
-       } else {
-        
-            echo "password reset token invalid";
-       }
     }
 
      /**
@@ -66,15 +60,31 @@ class Password extends \Core\Controller
     {
         $token = $_POST['token'];  //pass the token through action, this is new action comming from submitting the form and we do not have token( from url)
 
+        $user = $this->getUserOrExit($token);
+
+         echo "reset user's password here";
+      
+    }
+
+    /**
+     * Find the user model associated with the password reset token, or end the request with a message
+     *
+     * @param string $token Password reset token sent to user
+     *
+     * @return mixed User object if found and the token hasn't expired, null otherwise
+     */
+    protected function getUserOrExit($token)
+    {
         $user = User::findByPasswordReset($token);
 
         if ($user) {
 
-            echo "reset user's password here";
+            return $user;
 
         } else {
 
-            echo "password reset token invalid";
+            View::renderTemplate('Password/token_expired.html');
+            exit;
 
         }
     }
