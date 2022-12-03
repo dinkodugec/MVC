@@ -2,6 +2,26 @@
 %}
 
 <script>
+  $.validator.addMethod(
+    "validPassword",
+    function (value, element, param) {
+      if (value != "") {
+        //check if value is not empty
+        if (value.match(/.*[a-z]+.*/i) == null) {
+          //at least one letter
+          return false;
+        }
+        if (value.match(/.*\d+.*/) == null) {
+          //at least one number
+          return false;
+        }
+      }
+
+      return true;
+    },
+    "Must contain at least one letter and one number"
+  );
+
   $(document).ready(function () {
     /**
      * Validate the form
