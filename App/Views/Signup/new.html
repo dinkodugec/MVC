@@ -1,7 +1,41 @@
 {% extends 'base.html' %} {% block title %}Sign up{% endblock %} {% block footer
 %}
 
-<script></script>
+<script>
+  $(document).ready(function () {
+    /**
+     * Validate the form
+     */
+    $("#formSignup").validate({
+      rules: {
+        name: "required",
+        email: {
+          required: true,
+          email: true,
+          remote: "/account/validate-email",
+        },
+        password: {
+          required: true,
+          minlength: 6,
+          validPassword: true,
+        },
+      },
+      messages: {
+        email: {
+          remote: "email already taken",
+        },
+      },
+    });
+
+    /**
+     * Show password toggle button
+     */
+    $("#inputPassword").hideShowPassword({
+      show: false,
+      innerToggle: "focus",
+    });
+  });
+</script>
 
 {% endblock %} {% block body%}
 
@@ -18,7 +52,8 @@
 {% endif %}
 
 <!-- <form method="post" action="/signup/create"> -->
-<form action="/signup/create" method="post">
+<form action="/signup/create" method="post" id="formSignup">
+  <!-- id for selecting in jquery validation form -->
   <!--  <form action="index.php?signup/create" method="post"> if apache config are default -->
   <div>
     <label for="inputName">Name</label>
@@ -55,10 +90,7 @@
       name="password"
       placeholder="Password"
       required
-      pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
-      title="Minimum 6 chars, at least one letter and number"
     />
-    <!-- validation message come from title attribute  -->
   </div>
   <div class="form-group">
     <label for="inputPasswordConfirmation">Repeat password</label>
