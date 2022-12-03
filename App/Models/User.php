@@ -138,7 +138,7 @@ class User extends \Core\Model
      *
      * @return boolean  True if a record already exists with the specified email, false otherwise
      */
-    protected function emailExists($email, $ignore_id = null)
+   public static function emailExists($email, $ignore_id = null)
     {
     $user = static::findByEmail($email);
 
