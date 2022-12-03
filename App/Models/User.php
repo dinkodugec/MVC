@@ -382,8 +382,14 @@ class User extends \Core\Model
      */
     public static function findByPasswordReset($token)
     {
+      /*   var_dump($token);
+        die(); */
         $token = new Token($token);
         $hashed_token = $token->getHash();
+
+      /*     var_dump($hashed_token);
+          die(); */
+
 
         $sql = 'SELECT * FROM users
                 WHERE password_reset_hash = :token_hash';
