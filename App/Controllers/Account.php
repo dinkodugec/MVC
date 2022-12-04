@@ -17,7 +17,7 @@ class Account extends \Core\Controller
    */
   public function validateEmailAction()
   {
-    $is_valid = ! User::emailExists($_GET['email']);  //validation plug in send email address via GET method and we access like this
+    $is_valid = ! User::emailExists($_GET['email'], $_GET['ignore_id'] ?? null);  //validation plug in send email address via GET method and we access like this
 
     header('Content-Type: application/json');  //adding relevant content type fot json
     echo json_encode($is_valid); //encoding json boolean result using json_encode method

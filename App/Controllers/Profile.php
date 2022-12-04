@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Auth;
 use \Core\View;
+use App\Flash;
 
 /**
  * Profile controller
@@ -34,5 +35,29 @@ class Profile extends Authenticated
         View::renderTemplate('Profile/edit.html', [
             'user' => Auth::getUser()
         ]);
+    }
+
+      /**
+     * Update the profile
+     *
+     * @return void
+     */
+    public function updateAction()
+    {
+        $user = Auth::getUser();
+
+        if ($user->updateProfile($_POST)) {
+
+            Flash::addMessage('Changes saved');
+
+            $this->redirect('/profile/show');
+
+        } else {
+
+            View::renderTemplate('Profile/edit.html', [
+                'user' => $user
+            ]);
+
+        }
     }
 }
