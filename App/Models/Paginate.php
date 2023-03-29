@@ -17,13 +17,14 @@ class Paginate extends \Core\Model
     public $current_page;
     public $items_per_page;
     public $items_total_count;
+    public $items;
 
 
-    public function __construct($current_page=1, $items_per_page=4, $items_total_count=0)
+    public function __construct($current_page=1, $items_per_page=4)
     {
             $this->page = $current_page;
             $this->items_per_page = $items_per_page;
-            $this->items_total_count = $items_total_count;
+          
     }
 
 
@@ -31,15 +32,35 @@ class Paginate extends \Core\Model
      Return 4 post from database
       */
        
-   public static function getFourPosts()
+    public  function getPaginatedPost()
     {
-            $db = static::getDB();
+      $db = 0;
+      $host = 'localhost';
+      $dbname = 'mvc';
+      $username = 'root';
+      $password = '';
 
-            $stmt = $db->query('SELECT * FROM posts LIMIT {$items_per_page} OFFSET {$paginate->offset()}');
+      try {
+          $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", 
+                        $username, $password);
+
+      } catch (\PDOException $e) {
+          echo $e->getMessage();
+      }
+
+
+          /*   $db = static::getDB(); */
+     /*      var_dump($this->items_per_page, $this->offset() );
+          die();  */
+            $stmt = $db->prepare('SELECT * FROM posts LIMIT ? OFFSET ?');
+             $stmt->execute([$this->items_per_page, 4 ]);
+
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);  
-
-           
-            return $results;
+            var_dump($results);
+            die();
+            $this->items_total_count = count($results);
+           $this->items = $results;
+          
     }
 
 

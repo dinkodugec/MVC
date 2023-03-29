@@ -1,6 +1,8 @@
 <?php
 
-class Connection {
+class Connection 
+
+{
 
 protected static $instance;
 
@@ -20,9 +22,12 @@ echo "MySql Connection Error: " . $e->getMessage();
 }
 }
 
-public static function getInstance() {
-if (!self::$instance) {
-new Connection();
+
+
+public static function getInstance() 
+{
+    if (!self::$instance) {
+    new Connection();
 }
 
 return self::$instance;

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Auth;
+use App\Models\Paginates;
 use \Core\View;
 use \Core\DB;
 use \Model\Post;
@@ -45,10 +46,18 @@ class Home extends \Core\Controller
     {
 
        $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
-       $items_per_page = 4;
-       $items_total_cunt = \App\Models\Post::getAll();
+       $perPage = 3;
 
-       $paginate = new \App\Models\Paginate($page, $items_per_page, $items_total_cunt);
+        
+       $paginate = Paginates::getPaginatedData($page, $perPage);
+
+      /*   var_dump($paginate);
+        die(); */
+ 
+/*         echo "<pre>";
+       var_dump($paginate);
+       echo "</pre>";
+       die();   */
 
      /*    \App\Mail::send('dinko.dugec@gmail.com', 'Test', 'This is a test', '<h1>This is a test</h1>');  */
        
@@ -60,6 +69,7 @@ class Home extends \Core\Controller
          /*   'users' => \App\Models\User::getAll(), */
            'postsCount' => count(\App\Models\Post::getAll()),
            /* 'totalUsers' => count(\App\Models\User::getAll()) */
+           'paginate' => $paginate
 
 
         ]); 

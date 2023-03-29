@@ -1,84 +1,129 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block body %}
+{% extends "base.html" %} {% block title %}Igrišće, kulturno društvo{% endblock
+%} {% block body %}
 
-<!-- <p>Hello from a Twig template, {{ name }}!</p>
-
-<ul>
-  {% for colour in colours %}
-  <li>{{ colour }}</li>
-  {% endfor %}
-</ul> -->
-
-<h1>
-  Welcome{%if is_logged_in %}{{ session.user_name }} to our web site{% endif %}
-</h1>
-
-<!-- {% if session.user_id %} User with ID {{ session.user_id }} is logged in.
-<a href="/public/index.php?logout">Log out</a>
-{%else %}
-<a href="/signup/new">Sign up</a> or <a href="/login">log in</a>. {% endif %} 
- -->
-
-{%if current_user %} Hello {{ current_user.name }}.
-<a href="/logout">Log out</a>
-{% if session.user_id %} User with ID {{ session.user_id }} is logged in. {%
-endif %} {% else %}
-<a href="/signup/new">Sign up</a> or <a href="/login">log in</a>. {% endif %}
-
-<!-- <div class="row">
-  <div class="col-md-12">
-    <div class="thumbnails row">
-      {% for post in posts %}
-
-      <div class="col-xs-6 col-md-3">
-        <a
-          href="http://mvc.hr:8080/comments/index?id={{ post.id }}"
-          class="thumbnail"
+<section class="hero">
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg
+          class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
+          width="800"
+          height="700"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Placeholder: First slide"
+          preserveAspectRatio="xMidYMid slice"
+          focusable="false"
         >
-          <img
-            src="admin/posts/{{ post.image }}"
-            width="170px;"
-            height="50px"
-            alt=""
-          />
-        </a>
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#777"></rect>
+          <text x="50%" y="50%" fill="#555" dy=".3em">First slide</text>
+        </svg>
+      </div>
+      <div class="carousel-item">
+        <svg
+          class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
+          width="800"
+          height="700"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Placeholder: Second slide"
+          preserveAspectRatio="xMidYMid slice"
+          focusable="false"
+        >
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#666"></rect>
+          <text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text>
+        </svg>
+      </div>
+      <div class="carousel-item">
+        <svg
+          class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"
+          width="800"
+          height="700"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Placeholder: Third slide"
+          preserveAspectRatio="xMidYMid slice"
+          focusable="false"
+        >
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#555"></rect>
+          <text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text>
+        </svg>
       </div>
     </div>
-    <div class="col-xs-6 col-md-3">
-      <a
-        href="http://mvc.hr:8080/comments/index?id={{ post.id }}"
-        class="thumbnail"
-      >
-        <h2>{{ post.title}}</h2>
-      </a>
-    </div>
-    {% endfor %}
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-</div> -->
+</section>
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="thumbnails row">
-      {% for post in posts %}
+<div class="row mt-5">
+  {% for post in paginate.results %}
+  <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1">
+    <div class="card">
       <div class="col-xs-6 col-md-3">
-        <!-- responsive element that will activate some media query -->
-        <!--   <a
-         href="http://mvc.hr:8080/comments/index?id={{ post.id }}" 
-          class="thumbnail"
-        > --><a href="/posts/showPost?id={{ post.id }}" class="thumbnail">
+        <a href="/posts/showPost?id={{ post.id }}" class="thumbnail">
           <img
             src="admin/posts/{{ post.image }}"
-            width="200px;"
-            height="150px"
+            width="400px;"
+            height="250px"
             class="homePagePhoto"
           />
         </a>
       </div>
-      {% endfor %}
     </div>
   </div>
+  {% endfor %}
 </div>
 
-<div class="container">
+<div class="row">
+  {% for i in 1..paginate.numPages %}
+
+  <a href="http://mvc.hr:8080?page={{ i }}">{{ i }}</a>
+
+  {% endfor %}
+</div>
+
+<!-- <div class="container">
   <div class="row">
     <div class="col">
       <select name="drzava" id="drzava">
@@ -90,7 +135,7 @@ endif %} {% else %}
       <input type="text" id="polje" />
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- <script>
   window.onload = function () {
