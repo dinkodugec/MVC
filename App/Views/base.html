@@ -48,9 +48,13 @@
               </a>
             </li>
 
+            {%if is_admin %}
             <li class="nav-item">
-              <a class="nav-link disabled">If is admin</a>
+              <a href="admin/dashboard/index" class="nav-link"
+                >Admin dashboard</a
+              >
             </li>
+            {% endif %}
           </ul>
         </div>
         <form class="d-flex">

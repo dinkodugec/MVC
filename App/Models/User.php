@@ -196,6 +196,13 @@ class User extends \Core\Model
         return false;
     }
 
+    public function isAdmin($user)
+    {
+         $user = static::getAll();
+
+         return $user;
+    }
+
      /**
      * Find a user model by ID
      *
@@ -501,4 +508,31 @@ class User extends \Core\Model
 
         return false;
     }
+
+    /*
+   
+    Admin user
+
+
+    */
+    public static function admin()
+    {
+
+        $email = 'dugecdinko@gmail.com';
+
+        $sql = 'SELECT email FROM users WHERE email = :email';
+
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue('email', $email, PDO::PARAM_STR); 
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+
+     
+
+
+    }
+
+    
 }

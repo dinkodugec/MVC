@@ -105,6 +105,20 @@ abstract class Controller         //abstarct means that we do not want to create
         }
     }
 
+    public function requireAdmin()
+    {
+          if(! Auth::isAdmin()){
+
+            Flash::addMessage('Only For Admins', Flash::INFO);
+
+            Auth::rememberRequestedPage();
+
+            $this->redirect('/');
+          }
+
+    }
+
+
     public function pageCounter()
     {
         $_SESSION['pageCounter'] = $_SESSION['pageCounter'] +1;

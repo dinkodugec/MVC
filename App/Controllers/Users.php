@@ -2,8 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Auth;
 use \Core\View;
 use App\Models\User;
+use Core\DB;
+use PDO;
 
 /**
  * Posts controller
@@ -18,11 +21,20 @@ class Users extends \Core\Controller
      */
     public function indexAction()
     {
-        $users = User::getAll(); 
+        $users = User::getAll();
 
-           View::renderTemplate('User/index.html',[
+       
+
+        if($users){
+
+          View::renderTemplate('User/index.html',[
             'users' => $users
-           ]); 
+           ]);  
+          }
     }
+
+
+
+  
 
   }

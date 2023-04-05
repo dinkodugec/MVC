@@ -23,6 +23,7 @@ class Auth
 
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_name'] = $user->name;
+         $_SESSION['user_email'] = $user->email; 
 
         if($remember_me){
 
@@ -79,6 +80,33 @@ class Auth
     {
         return isset($_SESSION['user_name']);
     }
+
+
+       /**
+     * Return indicator of whether a user is admin in or not
+     *
+     * @return boolean
+     */
+
+    public static  function isAdmin()
+    {
+        
+      
+          $admin = User::admin();
+
+                if($admin['email'] === ($_SESSION['user_email'])){
+          
+                        return true;
+
+                    } else {
+
+                    return false;
+                    
+                    }
+
+    }
+
+   
 
      /**
      * Remember the originally-requested page in the session
@@ -158,4 +186,6 @@ class Auth
             setcookie('remember_me', '', time() - 3600);  // set to expire in the past
         }
     }
+
+    
 }

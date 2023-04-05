@@ -44,6 +44,7 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
+     
 
        $page = !empty($_GET['page']) ? (int)$_GET['page'] : 1;
        $perPage = 3;
