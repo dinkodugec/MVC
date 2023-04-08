@@ -96,13 +96,16 @@
   </div>
 </section>
 
-<div class="container text-center mt-5">
-  <div class="row">
-    <div class="col"><h1>Posljednji događaji</h1></div>
-  </div>
-</div>
 
-<section class="posts">
+<section class="posts"></section>
+
+    <div class="container text-center mt-5">
+      <div class="row">
+        <div class="col"> <p class="udrugatext" style="margin-top: 80px; font-family: 'Cormorant Garamond', serif; font-size: 50px;">Posjdnji događaji</div>
+      </div>
+    </div>
+
+
   <div class="row mt-5">
     {% for post in paginate.results %}
     <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 mb-5 offset-sm-1">
@@ -121,68 +124,43 @@
     </div>
     {% endfor %}
   </div>
+  
+
+
+    <nav aria-label="...">
+      <ul class="pagination pagination-lg justify-content-center">
+        <li class="page-item active" aria-current="page"></li>
+        {% for i in 1..paginate.numPages %}
+        <li class="page-item">
+          <a class="page-link" href="http://mvc.hr:8080?page={{ i }}">{{ i }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
 </section>
 
-<nav aria-label="...">
-  <ul class="pagination pagination-lg justify-content-center">
-    <li class="page-item active" aria-current="page"></li>
-    {% for i in 1..paginate.numPages %}
-    <li class="page-item">
-      <a class="page-link" href="http://mvc.hr:8080?page={{ i }}">{{ i }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-</nav>
+<section class="oudruzi">
 
-<!-- <div class="container">
-  <div class="row">
-    <div class="col">
-      <select name="drzava" id="drzava">
-        <option value="srbija">Srbija</option>
-        <option value="hrvatska">Hrvatska</option>
-        <option value="bih">Bih</option>
-      </select>
-      <p id="ispis"></p>
-      <input type="text" id="polje" />
-    </div>
-  </div>
-</div> -->
-
-<!-- <script>
-  window.onload = function () {
-    drzava = document.getElementById("drzava");
-    console.log(drzava);
-    drzava.addEventListener("change", function () {
-      /* console.log("promjenjeno"); */
-      izabrani = this.value;
-      ispis = document.getElementById("ispis");
-      ispis.innerHTML = izabrani;
-    });
-    polje = document.getElementById("polje");
-    polje.addEventListener("input", function () {
-      ispis = document.getElementById("ispis");
-      ispis.innerHTML = this.value;
-    });
-  };
-</script> -->
-
-<!-- <div class="container text-center">
-  } {% for post in posts %}
-  <div class="row">
-    <div class="card w-25 mb-5 mx-auto">
-      <img src="admin/posts/{{ post.image }}" alt="" class="card-img-top" />
-      <div class="card-body">
-        <a href="http://mvc.hr:8080/comments/index?id={{ post.id }}">
-          <h4 class="card-title">{{ post.title}}</h4></a
-        >
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+     
+      </div>
+      <div class="col">
+       <p class="udrugatext" style="margin-top: 150px; font-family: 'Cormorant Garamond', serif; font-size: 25px;">
+        Igrišće je nekada bilo mjesto, prostor, 
+        raskrižje u selima u pojedinim dijelovima Slavonije na kojemu se okupljala mladež i ostali mještani na druženje i igru, ako je bilo svirača. Momci bi znali naložiti vatru i preskakati je kako bi curama pokazali svoju spretnost, i sve bi potrajalo do kasno u noć. Sam naziv izumro je početkom 20. stoljeća, 
+        ali je ostao u pojedinim pjesmama i sjećanjima naših starih.
+        </p>
+      </div>
+      <div class="col">
+        
       </div>
     </div>
   </div>
 
-  {% endfor %}
-</div> -->
+</section>
 
-<!-- <div class="container">
-  <div class="row">All posts:{{ postsCount }}</div>
-</div> -->
+
 {%endblock %}
